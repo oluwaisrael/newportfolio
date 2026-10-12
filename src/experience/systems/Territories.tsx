@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 import { BufferGeometry, Vector3 } from 'three';
 /** Quiet contour ribbons encode distributions, processing lanes and transformations. */
 export function Territories() {
@@ -14,6 +14,7 @@ export function Territories() {
       ),
     [],
   );
+  useEffect(() => () => curves.forEach((curve) => curve.dispose()), [curves]);
   return (
     <group>
       {curves.map((g, i) => (

@@ -1,13 +1,22 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { BufferGeometry, Float32BufferAttribute, Line } from 'three';
 export function LaelWorld() {
-  const waveform = useRef<Line>(null);
   const geometry = useMemo(() => {
     const g = new BufferGeometry();
     g.setAttribute('position', new Float32BufferAttribute(new Float32Array(64 * 3), 3));
     return g;
   }, []);
+  const line = useMemo(() => new Line(geometry), [geometry]);
+  useEffect(
+    () => () => {
+      geometry.dispose();
+      (Array.isArray(line.material) ? line.material : [line.material]).forEach((material) =>
+        material.dispose(),
+      );
+    },
+    [geometry, line],
+  );
   useFrame(({ clock }) => {
     const positions = geometry.attributes.position;
     for (let i = 0; i < 64; i++) {
@@ -31,7 +40,7 @@ export function LaelWorld() {
         <boxGeometry args={[6, 2.6, 0.8]} />
         <meshStandardMaterial color="#20292b" metalness={0.65} roughness={0.3} />
       </mesh>
-      <primitive object={useMemo(() => new Line(geometry), [geometry])} ref={waveform}>
+      <primitive object={line}>
         <lineBasicMaterial attach="material" color="#a8b4a5" />
       </primitive>
     </group>

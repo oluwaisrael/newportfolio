@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { BufferGeometry, Vector3, Mesh } from 'three';
 export function PriceUniverseWorld() {
@@ -18,6 +18,7 @@ export function PriceUniverseWorld() {
       ),
     [],
   );
+  useEffect(() => () => history.dispose(), [history]);
   useFrame(({ clock }) => {
     if (pulse.current) {
       const t = (clock.elapsedTime * 0.18) % 1;
