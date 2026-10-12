@@ -89,3 +89,28 @@
 .ask-page > .text-link {
   margin-left: var(--gutter);
 }
+.field-notes {
+  margin: 0 var(--gutter);
+  padding: 25px 0 70px;
+  color: var(--muted);
+  max-width: 720px;
+}
+.field-notes summary {
+  cursor: pointer;
+  font-size: 8px;
+  list-style-position: inside;
+  padding: 15px 0;
+}
+.field-notes > div {
+  font-size: 12px;
+  border-left: 1px solid var(--line);
+  padding: 15px 25px;
+}
+.field-notes p {
+  margin-bottom: 15px;
+}
+.field-notes a {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: var(--lime);
+}
