@@ -12,3 +12,4 @@ createRoot(document.getElementById('root')!).render(<React.StrictMode><Router><A
 import './styles/editorial.css';
 import './styles/lab.css';
 import './styles/ask.css';
+import './styles/mobile.css';
