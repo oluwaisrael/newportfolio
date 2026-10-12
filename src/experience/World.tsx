@@ -1,3 +1,4 @@
+import { Strata } from './systems/Strata';
 import { CameraRig } from './CameraRig';
 import { Lighting } from './Lighting';
 import { Terrain } from './systems/Terrain';
@@ -12,4 +13,4 @@ import { NeuralNetworkWorld } from './projects/NeuralNetworkWorld';
 import { RoamWorld } from './projects/RoamWorld';
 import { LaelWorld } from './projects/LaelWorld';
 import { qualitySettings, type Quality } from './quality';
-export function World({quality}:{quality:Quality}){const settings=qualitySettings[quality];return <><Lighting/><CameraRig/><Terrain segments={settings.terrainSegments}/><Architecture count={settings.structures}/><DataField count={settings.observations}/><Pathways/><Territories/><PriceUniverseWorld/><UniRAGWorld/><NeuralNetworkWorld/><RoamWorld/><LaelWorld/><Destinations/></>;}
+export function World({quality}:{quality:Quality}){const settings=qualitySettings[quality];return <><Lighting/><CameraRig/><Terrain segments={settings.terrainSegments}/><Strata/><Architecture count={settings.structures}/><DataField count={settings.observations}/><Pathways/><Territories/><PriceUniverseWorld/><UniRAGWorld/><NeuralNetworkWorld/><RoamWorld/><LaelWorld/><Destinations/></>;}
