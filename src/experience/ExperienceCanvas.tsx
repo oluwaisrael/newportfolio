@@ -1,3 +1,4 @@
+import { useWorldInView } from '../hooks/useWorldInView';
 import { RuntimeQuality } from './RuntimeQuality';
 import { Canvas } from '@react-three/fiber';
 import { World } from './World';
@@ -16,6 +17,7 @@ export default function ExperienceCanvas({
   onPressure: () => void;
 }) {
   const visible = useVisibility();
+  const inView = useWorldInView();
   const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
   useEffect(
     () => () => {
@@ -38,9 +40,9 @@ export default function ExperienceCanvas({
       aria-hidden="true"
       tabIndex={-1}
       dpr={qualitySettings[quality].dpr}
-      frameloop={visible ? 'always' : 'never'}
+      frameloop={visible && inView ? 'always' : 'never'}
       camera={{ position: [47, 32, 57], fov: 43, near: 0.1, far: 220 }}
-      gl={{ antialias: false, alpha: false, powerPreference: 'low-power' }}
+      gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }}
       onCreated={({ gl }) => {
         setCanvas(gl.domElement);
         onReady();
