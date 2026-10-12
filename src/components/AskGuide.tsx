@@ -2,4 +2,50 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { authoredGuide } from '../services/ask';
 import { useWorld } from '../experience/WorldController';
-export function AskGuide(){const[selected,setSelected]=useState<string|null>(null);const {setHighlight}=useWorld();const answer=authoredGuide.answers.find(a=>a.id===selected);useEffect(()=>{setHighlight(answer?.destination??null);return()=>setHighlight(null);},[answer,setHighlight]);return <div className="ask-guide"><p className="eyebrow">A CURATED GUIDE / ANSWERS WRITTEN FOR THIS PORTFOLIO</p><div className="ask-layout"><div className="ask-prompts">{authoredGuide.answers.map(a=><button key={a.id} onClick={()=>setSelected(a.id)} aria-pressed={selected===a.id}>{a.question}<span>↗</span></button>)}</div><div className="ask-answer" aria-live="polite" aria-atomic="true">{answer?<><p className="eyebrow">DERIN / {answer.question}</p><p>{answer.text}</p>{answer.destination&&<Link className="text-link" to={'/work/'+answer.destination}>{answer.linkLabel} <span>↗</span></Link>}</>:<p className="muted">Choose a question.<br/>Follow a thought into the work.</p>}</div></div><p className="ask-note">Have a question this guide doesn’t answer? <a href="mailto:adeotiisrael93@gmail.com">Talk to me directly ↗</a></p></div>;}
+export function AskGuide() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const { setHighlight } = useWorld();
+  const answer = authoredGuide.answers.find((a) => a.id === selected);
+  useEffect(() => {
+    setHighlight(answer?.destination ?? null);
+    return () => setHighlight(null);
+  }, [answer, setHighlight]);
+  return (
+    <div className="ask-guide">
+      <p className="eyebrow">A CURATED GUIDE / ANSWERS WRITTEN FOR THIS PORTFOLIO</p>
+      <div className="ask-layout">
+        <div className="ask-prompts">
+          {authoredGuide.answers.map((a) => (
+            <button key={a.id} onClick={() => setSelected(a.id)} aria-pressed={selected === a.id}>
+              {a.question}
+              <span>↗</span>
+            </button>
+          ))}
+        </div>
+        <div className="ask-answer" aria-live="polite" aria-atomic="true">
+          {answer ? (
+            <>
+              <p className="eyebrow">DERIN / {answer.question}</p>
+              <p>{answer.text}</p>
+              {answer.destination && (
+                <Link className="text-link" to={'/work/' + answer.destination}>
+                  {answer.linkLabel} <span>↗</span>
+                </Link>
+              )}
+            </>
+          ) : (
+            <p className="muted">
+              Choose a question.
+              <br />
+              Follow a thought into the work.
+            </p>
+          )}
+        </div>
+      </div>
+      <p className="ask-note">
+        Have a question this guide doesn’t answer?{' '}
+        <a href="mailto:adeotiisrael93@gmail.com">Talk to me directly ↗</a>
+      </p>
+    </div>
+  );
+}

@@ -1,1 +1,91 @@
-.about-page,.lab-page,.ask-page{background:linear-gradient(180deg,#080b0d40,#080b0df5 700px)}.about-editorial{display:grid;grid-template-columns:1fr 1fr;gap:10vw;padding:0 var(--gutter) 120px;align-items:center}.portrait-installation{position:relative;margin:0;max-width:540px}.portrait-installation img{width:100%;height:650px;object-fit:cover;object-position:center 38%;filter:grayscale(1) brightness(.7) contrast(1.1);mask-image:linear-gradient(#000 80%,transparent)}.portrait-installation:before{content:'';position:absolute;inset:20px -12px -12px 20px;border:1px solid #b3c4b321;z-index:2;pointer-events:none}.portrait-installation figcaption{font-size:8px;position:absolute;bottom:20px;left:20px;color:#b2bdb0}.about-copy h2{font-size:clamp(34px,3.5vw,52px);letter-spacing:-.04em;line-height:1.2;margin:22px 0 30px}.about-copy>p:not(.eyebrow){font-size:13px;color:var(--muted);margin:20px 0}.journey{padding:80px var(--gutter) 120px;border-top:1px solid var(--line)}.journey h2{font-size:50px;letter-spacing:-.05em;margin:20px 0 50px}.journey dl{max-width:850px}.journey dl>div{display:grid;grid-template-columns:1fr 3fr;gap:30px;border-top:1px solid var(--line);padding:28px 0}.journey dt{font-size:16px}.journey dd{font-size:13px;line-height:1.9;color:var(--muted);margin:0}.lab-page,.ask-page{padding-bottom:100px}.lab-note{padding:40px var(--gutter);color:var(--muted);font-size:8px}.ask-page>.text-link{margin-left:var(--gutter)}
+.about-page,
+.lab-page,
+.ask-page {
+  background: linear-gradient(180deg, #080b0d40, #080b0df5 700px);
+}
+.about-editorial {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10vw;
+  padding: 0 var(--gutter) 120px;
+  align-items: center;
+}
+.portrait-installation {
+  position: relative;
+  margin: 0;
+  max-width: 540px;
+}
+.portrait-installation img {
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: grayscale(1) brightness(0.7) contrast(1.1);
+  mask-image: linear-gradient(#000 80%, transparent);
+}
+.portrait-installation:before {
+  content: '';
+  position: absolute;
+  inset: 20px -12px -12px 20px;
+  border: 1px solid #b3c4b321;
+  z-index: 2;
+  pointer-events: none;
+}
+.portrait-installation figcaption {
+  font-size: 8px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #b2bdb0;
+}
+.about-copy h2 {
+  font-size: clamp(34px, 3.5vw, 52px);
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin: 22px 0 30px;
+}
+.about-copy > p:not(.eyebrow) {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 20px 0;
+}
+.journey {
+  padding: 80px var(--gutter) 120px;
+  border-top: 1px solid var(--line);
+}
+.journey h2 {
+  font-size: 50px;
+  letter-spacing: -0.05em;
+  margin: 20px 0 50px;
+}
+.journey dl {
+  max-width: 850px;
+}
+.journey dl > div {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 30px;
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+}
+.journey dt {
+  font-size: 16px;
+}
+.journey dd {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin: 0;
+}
+.lab-page,
+.ask-page {
+  padding-bottom: 100px;
+}
+.lab-note {
+  padding: 40px var(--gutter);
+  color: var(--muted);
+  font-size: 8px;
+}
+.ask-page > .text-link {
+  margin-left: var(--gutter);
+}

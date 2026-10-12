@@ -2,4 +2,65 @@ import { useEffect, useRef, useState } from 'react';
 import { Soundscape } from '../services/sound';
 import { useWorld } from '../experience/WorldController';
 import { useVisibility } from '../hooks/useVisibility';
-export function SoundControl(){const engine=useRef<Soundscape|null>(null);const[enabled,setEnabled]=useState(false);const[error,setError]=useState(false);const {state}=useWorld();const visible=useVisibility();const[saved]=useState(()=>{try{return localStorage.getItem('derin-sound')==='on';}catch{return false;}});useEffect(()=>{engine.current=new Soundscape();return()=>{void engine.current?.close();};},[]);useEffect(()=>{if(enabled&&visible){void engine.current?.start().then(()=>engine.current?.tune(state)).catch(()=>{setError(true);setEnabled(false);});}else void engine.current?.mute();},[state,enabled,visible]);async function toggle(){try{if(!enabled)await engine.current?.start();else await engine.current?.mute();setEnabled(!enabled);setError(false);try{localStorage.setItem('derin-sound',enabled?'off':'on');}catch{/* Session-only sound remains usable. */}}catch{setError(true);setEnabled(false);}}return <button className="sound-control mono" aria-pressed={enabled} onClick={()=>void toggle()} title={saved&&!enabled?'Your sound preference is saved. Click to enable audio in this visit.':undefined}>{error?'SOUND UNAVAILABLE':enabled?'SOUND ON':'SOUND OFF'} <span aria-hidden="true">{enabled?'≋':'―'}</span></button>;}
+export function SoundControl() {
+  const engine = useRef<Soundscape | null>(null);
+  const [enabled, setEnabled] = useState(false);
+  const [error, setError] = useState(false);
+  const { state } = useWorld();
+  const visible = useVisibility();
+  const [saved] = useState(() => {
+    try {
+      return localStorage.getItem('derin-sound') === 'on';
+    } catch {
+      return false;
+    }
+  });
+  useEffect(() => {
+    engine.current = new Soundscape();
+    return () => {
+      void engine.current?.close();
+    };
+  }, []);
+  useEffect(() => {
+    if (enabled && visible) {
+      void engine.current
+        ?.start()
+        .then(() => engine.current?.tune(state))
+        .catch(() => {
+          setError(true);
+          setEnabled(false);
+        });
+    } else void engine.current?.mute();
+  }, [state, enabled, visible]);
+  async function toggle() {
+    try {
+      if (!enabled) await engine.current?.start();
+      else await engine.current?.mute();
+      setEnabled(!enabled);
+      setError(false);
+      try {
+        localStorage.setItem('derin-sound', enabled ? 'off' : 'on');
+      } catch {
+        /* Session-only sound remains usable. */
+      }
+    } catch {
+      setError(true);
+      setEnabled(false);
+    }
+  }
+  return (
+    <button
+      className="sound-control mono"
+      aria-pressed={enabled}
+      onClick={() => void toggle()}
+      title={
+        saved && !enabled
+          ? 'Your sound preference is saved. Click to enable audio in this visit.'
+          : undefined
+      }
+    >
+      {error ? 'SOUND UNAVAILABLE' : enabled ? 'SOUND ON' : 'SOUND OFF'}{' '}
+      <span aria-hidden="true">{enabled ? '≋' : '―'}</span>
+    </button>
+  );
+}

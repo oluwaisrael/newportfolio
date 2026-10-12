@@ -1,1 +1,14 @@
-export function Lighting(){return <><color attach="background" args={['#111c23']}/><fogExp2 attach="fog" args={['#1b2b31',.014]}/><ambientLight intensity={1.1} color="#839ba0"/><hemisphereLight args={['#c1d3d9','#232c22',2.4]}/><directionalLight position={[-25,35,-30]} intensity={4.5} color="#c6d1bc"/><directionalLight position={[30,9,25]} intensity={.5} color="#668591"/><pointLight position={[-13,5,-5]} intensity={22} distance={20} color="#bdca85" decay={2}/><pointLight position={[4,6,-22]} intensity={24} distance={20} color="#d9ae75" decay={2}/></>;}
+export function Lighting() {
+  return (
+    <>
+      <color attach="background" args={['#111c23']} />
+      <fogExp2 attach="fog" args={['#1b2b31', 0.014]} />
+      <ambientLight intensity={1.1} color="#839ba0" />
+      <hemisphereLight args={['#c1d3d9', '#232c22', 2.4]} />
+      <directionalLight position={[-25, 35, -30]} intensity={4.5} color="#c6d1bc" />
+      <directionalLight position={[30, 9, 25]} intensity={0.5} color="#668591" />
+      <pointLight position={[-13, 5, -5]} intensity={22} distance={20} color="#bdca85" decay={2} />
+      <pointLight position={[4, 6, -22]} intensity={24} distance={20} color="#d9ae75" decay={2} />
+    </>
+  );
+}

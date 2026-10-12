@@ -1,3 +1,71 @@
 import { useState } from 'react';
 import { retrieve } from './retrieval';
-export function RagTrace(){const[query,setQuery]=useState('find meaning');const[weight,setWeight]=useState(.5);const results=retrieve(query,weight);return <article className="experiment"><div className="experiment-heading"><p className="eyebrow">02 / RETRIEVAL TRACE</p><h2>Exact words. Related ideas.</h2><p>Search five visible fragments. Compare term matching with a small, explicit concept dictionary.</p></div><div className="lab-controls"><label>Query<input type="search" value={query} maxLength={120} onChange={e=>setQuery(e.target.value)} placeholder="Try: offline, jobs, uncertainty"/></label><label>Concept weight <output>{Math.round(weight*100)}%</output><input type="range" min="0" max="1" step=".1" value={weight} onChange={e=>setWeight(+e.target.value)}/></label></div><ol className="retrieval-results">{results.map((doc,i)=><li key={doc.id} style={{'--score':`${Math.min(100,doc.score*35)}%`} as React.CSSProperties}><span className="mono">{i+1} / {doc.id}</span><div><h3>{doc.title}</h3><p>{doc.text}</p><div className="score-track"><span/></div></div><span className="mono">{doc.score.toFixed(2)}</span></li>)}</ol><p className="lab-result" aria-live="polite">{results[0].score>0?`Selected context: [${results[0].id}] ${results[0].title}. Inspect the source fragment above.`:'No matching evidence. Try a different query.'}</p><p className="experiment-footnote">A transparent teaching model: BM25-style term saturation plus hand-authored concept matching. No embeddings, language model, or generated answer is running here.</p></article>;}
+export function RagTrace() {
+  const [query, setQuery] = useState('find meaning');
+  const [weight, setWeight] = useState(0.5);
+  const results = retrieve(query, weight);
+  return (
+    <article className="experiment">
+      <div className="experiment-heading">
+        <p className="eyebrow">02 / RETRIEVAL TRACE</p>
+        <h2>Exact words. Related ideas.</h2>
+        <p>
+          Search five visible fragments. Compare term matching with a small, explicit concept
+          dictionary.
+        </p>
+      </div>
+      <div className="lab-controls">
+        <label>
+          Query
+          <input
+            type="search"
+            value={query}
+            maxLength={120}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Try: offline, jobs, uncertainty"
+          />
+        </label>
+        <label>
+          Concept weight <output>{Math.round(weight * 100)}%</output>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step=".1"
+            value={weight}
+            onChange={(e) => setWeight(+e.target.value)}
+          />
+        </label>
+      </div>
+      <ol className="retrieval-results">
+        {results.map((doc, i) => (
+          <li
+            key={doc.id}
+            style={{ '--score': `${Math.min(100, doc.score * 35)}%` } as React.CSSProperties}
+          >
+            <span className="mono">
+              {i + 1} / {doc.id}
+            </span>
+            <div>
+              <h3>{doc.title}</h3>
+              <p>{doc.text}</p>
+              <div className="score-track">
+                <span />
+              </div>
+            </div>
+            <span className="mono">{doc.score.toFixed(2)}</span>
+          </li>
+        ))}
+      </ol>
+      <p className="lab-result" aria-live="polite">
+        {results[0].score > 0
+          ? `Selected context: [${results[0].id}] ${results[0].title}. Inspect the source fragment above.`
+          : 'No matching evidence. Try a different query.'}
+      </p>
+      <p className="experiment-footnote">
+        A transparent teaching model: BM25-style term saturation plus hand-authored concept
+        matching. No embeddings, language model, or generated answer is running here.
+      </p>
+    </article>
+  );
+}

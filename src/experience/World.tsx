@@ -15,4 +15,27 @@ import { NeuralNetworkWorld } from './projects/NeuralNetworkWorld';
 import { RoamWorld } from './projects/RoamWorld';
 import { LaelWorld } from './projects/LaelWorld';
 import { qualitySettings, type Quality } from './quality';
-export function World({quality}:{quality:Quality}){const settings=qualitySettings[quality];return <><Lighting/><CameraRig/><Terrain segments={settings.terrainSegments}/><DataField count={settings.observations}/><EntryFormation><Strata/><Infrastructure/><Architecture count={settings.structures}/><Pathways/><Territories/><PriceUniverseWorld/><UniRAGWorld/><NeuralNetworkWorld/><RoamWorld/><LaelWorld/></EntryFormation><Destinations/></>;}
+export function World({ quality }: { quality: Quality }) {
+  const settings = qualitySettings[quality];
+  return (
+    <>
+      <Lighting />
+      <CameraRig />
+      <Terrain segments={settings.terrainSegments} />
+      <DataField count={settings.observations} />
+      <EntryFormation>
+        <Strata />
+        <Infrastructure />
+        <Architecture count={settings.structures} />
+        <Pathways />
+        <Territories />
+        <PriceUniverseWorld />
+        <UniRAGWorld />
+        <NeuralNetworkWorld />
+        <RoamWorld />
+        <LaelWorld />
+      </EntryFormation>
+      <Destinations />
+    </>
+  );
+}

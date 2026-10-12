@@ -13,15 +13,15 @@ The attached request contained text only, with no reference bitmap.
 Source: https://github.com/oluwaisrael/Portfolio/tree/main/public/images
 Downloaded to a temporary audit directory, not copied wholesale into the application.
 
-| Candidate | Resolution / quality | Assessment |
-| --- | --- | --- |
-| green.jpeg | 608 × 1080, original photo | Selected. Direct eye contact, full silhouette, even light, contextual Lagos wall; works as an editorial installation. |
-| derin-cutout.png | 945 × 1680, processed cutout | Same pose; larger dimensions do not add original photo detail. Cutout edges show artifacts. |
-| israel.jpeg | 768 × 1024, original photo | Strong clothing and silhouette, but face down and shaded. |
-| israel-cutout.png | 1086 × 1448, processed cutout | Expressive gesture, but obscured face and processed edges. |
-| me.jpeg | 608 × 1080 | Face down, small subject, busy architecture; less flexible crop. |
-| WhatsApp Image 2026-09-14 at 14.26.02.jpeg | 608 × 1080 | Byte-identical duplicate of me.jpeg. |
-| image.png, ironman.jpg, spiderman.jpg, spidey.jpg | Character imagery | Excluded: unrelated licensed characters, not personal photos. |
+| Candidate                                         | Resolution / quality          | Assessment                                                                                                            |
+| ------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| green.jpeg                                        | 608 × 1080, original photo    | Selected. Direct eye contact, full silhouette, even light, contextual Lagos wall; works as an editorial installation. |
+| derin-cutout.png                                  | 945 × 1680, processed cutout  | Same pose; larger dimensions do not add original photo detail. Cutout edges show artifacts.                           |
+| israel.jpeg                                       | 768 × 1024, original photo    | Strong clothing and silhouette, but face down and shaded.                                                             |
+| israel-cutout.png                                 | 1086 × 1448, processed cutout | Expressive gesture, but obscured face and processed edges.                                                            |
+| me.jpeg                                           | 608 × 1080                    | Face down, small subject, busy architecture; less flexible crop.                                                      |
+| WhatsApp Image 2026-09-14 at 14.26.02.jpeg        | 608 × 1080                    | Byte-identical duplicate of me.jpeg.                                                                                  |
+| image.png, ironman.jpg, spiderman.jpg, spidey.jpg | Character imagery             | Excluded: unrelated licensed characters, not personal photos.                                                         |
 
 All six plausible portrait files and image.png were opened visually. Character files
 were excluded by content/filename. No project screenshots existed in the four public

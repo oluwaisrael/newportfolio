@@ -1,8 +1,109 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-export default function Home(){return <>
- <section className="arrival" aria-labelledby="arrival-title"><div className="arrival-top mono"><span><i className="status-dot"/> A PERSONAL EXPLORATION</span><span>SYSTEMS WORLD — VOL. 01</span></div><div className="arrival-copy"><p className="eyebrow">STATISTICS × SOFTWARE × AI</p><h1 id="arrival-title">I turn data<br/>into <em>systems.</em></h1><p className="arrival-description">Statistics underneath. Backend at the foundation.<br/>AI/ML at the frontier. Interactive systems on the surface.</p><div className="arrival-actions"><Link to="/work" className="pill">Enter the world <span>↗</span></Link><Link to="/ask" className="text-link">Ask Derin <span>↗</span></Link></div></div><div className="arrival-side mono">OBSERVATIONS → PATTERNS → SYSTEMS</div><div className="arrival-bottom"><span className="mono">ADEOTI ISRAEL<br/><span className="muted">STATISTICS STUDENT / BUILDER</span></span><a href="#discover" className="scroll-cue mono">SCROLL TO DISCOVER <span>↓</span></a><span className="mono arrival-coordinate">06.5244° N<br/>03.3792° E</span></div></section>
- <section id="discover" className="discovery"><div className="section-heading"><p className="eyebrow">01 / THE TERRITORY</p><h2>Five destinations.<br/>One connected world.</h2><p className="muted">Follow a question into the system behind it.</p></div><div className="destination-index">{projects.map(p=><Link key={p.slug} to={'/work/'+p.slug} className="destination-line"><span className="mono">{p.number}</span><span><strong>{p.title}</strong><small>{p.summary}</small></span><span className="mono destination-category">{p.category}</span><span>↗</span></Link>)}</div><Link to="/work" className="text-link">Explore the world map <span>↗</span></Link></section>
- <section className="direction"><p className="eyebrow">02 / THE PERSON BEHIND THE PATTERNS</p><h2>Learning to see.<br/>Learning to build.</h2><p>I’m Adeoti Israel. Derin, online. A Statistics student at the University of Lagos, working at the intersection of data, backend engineering and applied AI.</p><Link to="/about" className="text-link">A direction of travel <span>↗</span></Link></section>
- <section className="home-lab"><p className="eyebrow">03 / OPEN QUESTIONS</p><h2>Some ideas need<br/>to be touched.</h2><p>Change a distribution. Follow a retrieval. Look underneath an activation.</p><Link to="/lab" className="text-link">Step into the lab <span>↗</span></Link><Link to="/ask" className="text-link">Ask the work <span>↗</span></Link></section>
- </>;}
+export default function Home() {
+  return (
+    <>
+      <section className="arrival" aria-labelledby="arrival-title">
+        <div className="arrival-top mono">
+          <span>
+            <i className="status-dot" /> A PERSONAL EXPLORATION
+          </span>
+          <span>SYSTEMS WORLD — VOL. 01</span>
+        </div>
+        <div className="arrival-copy">
+          <p className="eyebrow">STATISTICS × SOFTWARE × AI</p>
+          <h1 id="arrival-title">
+            I turn data
+            <br />
+            into <em>systems.</em>
+          </h1>
+          <p className="arrival-description">
+            Statistics underneath. Backend at the foundation.
+            <br />
+            AI/ML at the frontier. Interactive systems on the surface.
+          </p>
+          <div className="arrival-actions">
+            <Link to="/work" className="pill">
+              Enter the world <span>↗</span>
+            </Link>
+            <Link to="/ask" className="text-link">
+              Ask Derin <span>↗</span>
+            </Link>
+          </div>
+        </div>
+        <div className="arrival-side mono">OBSERVATIONS → PATTERNS → SYSTEMS</div>
+        <div className="arrival-bottom">
+          <span className="mono">
+            ADEOTI ISRAEL
+            <br />
+            <span className="muted">STATISTICS STUDENT / BUILDER</span>
+          </span>
+          <a href="#discover" className="scroll-cue mono">
+            SCROLL TO DISCOVER <span>↓</span>
+          </a>
+          <span className="mono arrival-coordinate">
+            06.5244° N<br />
+            03.3792° E
+          </span>
+        </div>
+      </section>
+      <section id="discover" className="discovery">
+        <div className="section-heading">
+          <p className="eyebrow">01 / THE TERRITORY</p>
+          <h2>
+            Five destinations.
+            <br />
+            One connected world.
+          </h2>
+          <p className="muted">Follow a question into the system behind it.</p>
+        </div>
+        <div className="destination-index">
+          {projects.map((p) => (
+            <Link key={p.slug} to={'/work/' + p.slug} className="destination-line">
+              <span className="mono">{p.number}</span>
+              <span>
+                <strong>{p.title}</strong>
+                <small>{p.summary}</small>
+              </span>
+              <span className="mono destination-category">{p.category}</span>
+              <span>↗</span>
+            </Link>
+          ))}
+        </div>
+        <Link to="/work" className="text-link">
+          Explore the world map <span>↗</span>
+        </Link>
+      </section>
+      <section className="direction">
+        <p className="eyebrow">02 / THE PERSON BEHIND THE PATTERNS</p>
+        <h2>
+          Learning to see.
+          <br />
+          Learning to build.
+        </h2>
+        <p>
+          I’m Adeoti Israel. Derin, online. A Statistics student at the University of Lagos, working
+          at the intersection of data, backend engineering and applied AI.
+        </p>
+        <Link to="/about" className="text-link">
+          A direction of travel <span>↗</span>
+        </Link>
+      </section>
+      <section className="home-lab">
+        <p className="eyebrow">03 / OPEN QUESTIONS</p>
+        <h2>
+          Some ideas need
+          <br />
+          to be touched.
+        </h2>
+        <p>Change a distribution. Follow a retrieval. Look underneath an activation.</p>
+        <Link to="/lab" className="text-link">
+          Step into the lab <span>↗</span>
+        </Link>
+        <Link to="/ask" className="text-link">
+          Ask the work <span>↗</span>
+        </Link>
+      </section>
+    </>
+  );
+}

@@ -1,4 +1,60 @@
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { BufferGeometry, Vector3, Group, Mesh, MeshStandardMaterial } from 'three';
-export function NeuralNetworkWorld(){const layers=useRef<Group>(null);const connections=useMemo(()=>{const p:Vector3[]=[];for(let l=0;l<2;l++)for(let a=0;a<10;a++)for(let b=0;b<10;b+=2){p.push(new Vector3(l*3-3,.7+a*.5,0),new Vector3((l+1)*3-3,.7+b*.5,0));}return new BufferGeometry().setFromPoints(p);},[]);useFrame(({clock})=>{const phase=(clock.elapsedTime*.55)%3;layers.current?.children.forEach((layer,i)=>layer.children.forEach(node=>{((node as Mesh).material as MeshStandardMaterial).emissiveIntensity=Math.max(0,1-Math.abs(phase-i))*.7;}));});return <group position={[20,0,-9]}><mesh position={[0,-.25,0]}><boxGeometry args={[12,.5,7]}/><meshStandardMaterial color="#252e34"/></mesh><lineSegments geometry={connections}><lineBasicMaterial color="#718499" transparent opacity={.18}/></lineSegments><group ref={layers}>{[0,1,2].map(l=><group key={l} position={[l*3-3,0,0]}>{Array.from({length:10},(_,i)=><mesh key={i} position={[0,.7+i*.5,0]}><boxGeometry args={[.28,.28,.28]}/><meshStandardMaterial color="#8c9ba9" emissive="#adc8ea" emissiveIntensity={0}/></mesh>)}</group>)}</group>{[-4.5,4.5].map(x=><mesh key={x} position={[x,3,-.8]}><boxGeometry args={[.15,6,2]}/><meshStandardMaterial color="#3c4950"/></mesh>)}<mesh position={[0,6.05,-.8]}><boxGeometry args={[9.2,.12,2]}/><meshStandardMaterial color="#3c4950"/></mesh></group>;}
+export function NeuralNetworkWorld() {
+  const layers = useRef<Group>(null);
+  const connections = useMemo(() => {
+    const p: Vector3[] = [];
+    for (let l = 0; l < 2; l++)
+      for (let a = 0; a < 10; a++)
+        for (let b = 0; b < 10; b += 2) {
+          p.push(
+            new Vector3(l * 3 - 3, 0.7 + a * 0.5, 0),
+            new Vector3((l + 1) * 3 - 3, 0.7 + b * 0.5, 0),
+          );
+        }
+    return new BufferGeometry().setFromPoints(p);
+  }, []);
+  useFrame(({ clock }) => {
+    const phase = (clock.elapsedTime * 0.55) % 3;
+    layers.current?.children.forEach((layer, i) =>
+      layer.children.forEach((node) => {
+        ((node as Mesh).material as MeshStandardMaterial).emissiveIntensity =
+          Math.max(0, 1 - Math.abs(phase - i)) * 0.7;
+      }),
+    );
+  });
+  return (
+    <group position={[20, 0, -9]}>
+      <mesh position={[0, -0.25, 0]}>
+        <boxGeometry args={[12, 0.5, 7]} />
+        <meshStandardMaterial color="#252e34" />
+      </mesh>
+      <lineSegments geometry={connections}>
+        <lineBasicMaterial color="#718499" transparent opacity={0.18} />
+      </lineSegments>
+      <group ref={layers}>
+        {[0, 1, 2].map((l) => (
+          <group key={l} position={[l * 3 - 3, 0, 0]}>
+            {Array.from({ length: 10 }, (_, i) => (
+              <mesh key={i} position={[0, 0.7 + i * 0.5, 0]}>
+                <boxGeometry args={[0.28, 0.28, 0.28]} />
+                <meshStandardMaterial color="#8c9ba9" emissive="#adc8ea" emissiveIntensity={0} />
+              </mesh>
+            ))}
+          </group>
+        ))}
+      </group>
+      {[-4.5, 4.5].map((x) => (
+        <mesh key={x} position={[x, 3, -0.8]}>
+          <boxGeometry args={[0.15, 6, 2]} />
+          <meshStandardMaterial color="#3c4950" />
+        </mesh>
+      ))}
+      <mesh position={[0, 6.05, -0.8]}>
+        <boxGeometry args={[9.2, 0.12, 2]} />
+        <meshStandardMaterial color="#3c4950" />
+      </mesh>
+    </group>
+  );
+}
