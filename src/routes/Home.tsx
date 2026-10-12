@@ -18,8 +18,7 @@ export default function Home() {
             into <em>systems.</em>
           </h1>
           <p className="arrival-description">
-            Statistics underneath. Backend at the foundation.
-            <br />
+            Statistics underneath. Backend at the foundation. <br />
             AI/ML at the frontier. Interactive systems on the surface.
           </p>
           <div className="arrival-actions">
