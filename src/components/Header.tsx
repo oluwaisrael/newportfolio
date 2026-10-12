@@ -7,7 +7,7 @@ export function Header() {
       </a>
       <header className="site-header">
         <Link to="/" className="brand" aria-label="Derin, home">
-          derin<span>®</span>
+          derin<span aria-hidden="true">*</span>
         </Link>
         <span className="header-location mono">
           INDEPENDENT MIND.

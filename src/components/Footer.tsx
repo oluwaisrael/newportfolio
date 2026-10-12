@@ -4,7 +4,7 @@ export function Footer() {
     <footer className="site-footer">
       <div>
         <Link to="/" className="brand">
-          derin<span>®</span>
+          derin<span aria-hidden="true">*</span>
         </Link>
         <p>
           Thinking statistically.
