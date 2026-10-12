@@ -1,3 +1,5 @@
+import { useWorld } from './WorldController';
+import { findProject } from '../data/projects';
 import { SoundControl } from '../components/SoundControl';
 import { lazy, Suspense, useCallback, useState } from 'react';
 import { useCapabilities } from '../hooks/useCapabilities';
@@ -6,6 +8,8 @@ import { readQuality, saveQuality, type Quality } from './quality';
 const ExperienceCanvas = lazy(() => import('./ExperienceCanvas'));
 export function WorldLayer() {
   const { realtime } = useCapabilities();
+  const { state, highlight } = useWorld();
+  const artwork = findProject(highlight ?? state);
   const [failed, setFailed] = useState(false);
   const [ready, setReady] = useState(false);
   const [quality, setQuality] = useState<Quality>(readQuality);
@@ -31,7 +35,12 @@ export function WorldLayer() {
         className={'world-layer ' + (ready && active ? 'world-ready' : 'world-static')}
         aria-hidden="true"
       >
-        <div className="world-artwork" />
+        <div
+          className="world-artwork"
+          style={
+            artwork ? { backgroundImage: `url(/images/world-${artwork.slug}.webp)` } : undefined
+          }
+        />
         {active && (
           <SceneBoundary onFailure={failure}>
             <Suspense fallback={null}>
