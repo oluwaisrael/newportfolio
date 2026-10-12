@@ -9,7 +9,12 @@ export default defineConfig({
     baseURL: 'http://127.0.0.1:5173',
     channel: 'chrome',
     headless: true,
-    launchOptions: { args: ['--enable-webgl', '--use-gl=angle', '--use-angle=metal'] },
+    launchOptions: {
+      args:
+        process.platform === 'darwin'
+          ? ['--enable-webgl', '--use-gl=angle', '--use-angle=metal']
+          : ['--enable-webgl', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+    },
   },
   webServer: {
     command: 'npm run dev -- --port 5173',

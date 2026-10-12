@@ -132,3 +132,35 @@ test('desktop retains one Canvas and persists explicit quality', async ({ page }
   await page.reload();
   await expect(page.getByLabel('Graphics quality')).toHaveValue('low');
 });
+
+test('runtime context loss switches to still artwork without losing content', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/work/priceuniverse');
+  await expect(page.locator('.world-ready')).toBeVisible();
+  await page.locator('canvas').dispatchEvent('webglcontextlost');
+  await expect(page.locator('canvas')).toHaveCount(0);
+  await expect(page.getByText('WORLD / STILL')).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'PriceUniverse', exact: true })).toBeVisible();
+});
+
+test('low capacity devices use the static experience', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.addInitScript(() =>
+    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 2 }),
+  );
+  await page.goto('/');
+  await expect(page.getByText('WORLD / STILL')).toBeVisible();
+  await expect(page.locator('canvas')).toHaveCount(0);
+});
+
+test('all desktop routes keep the world mounted without runtime errors', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  for (const route of routes) {
+    await page.goto(route);
+    await expect(page.locator('.world-ready')).toBeVisible();
+    await expect(page.locator('canvas')).toHaveCount(1);
+  }
+  expect(errors).toEqual([]);
+});
