@@ -15,7 +15,7 @@ const browser = await chromium.launch({
       : ['--enable-webgl', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
 });
 const page = await browser.newPage({
-  viewport: { width: 1536, height: 960 },
+  viewport: { width: 1600, height: 960 },
   deviceScaleFactor: 1,
 });
 const errors = [];
@@ -38,6 +38,12 @@ if (process.argv.includes('--update-stills')) {
 }
 await style.evaluate((el) => el.remove());
 const initial = await page.evaluate(() => ({
+  headline: document.querySelector('#arrival-title')?.getBoundingClientRect().toJSON(),
+  sound: document.querySelector('.sound-control')?.getBoundingClientRect().toJSON(),
+  districts: [...document.querySelectorAll('.district-pin')].map((p) => ({
+    name: p.textContent?.split('\n')[0],
+    bounds: p.getBoundingClientRect().toJSON(),
+  })),
   metrics: window.__worldMetrics,
   camera: window.__arrivalCamera,
   quality: document.querySelector('select')?.value,

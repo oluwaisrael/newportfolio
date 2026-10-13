@@ -1,21 +1,27 @@
 import { CatmullRomCurve3, Vector3 } from 'three';
-
-// World units are metres. Arrival is the first, deliberately short leg of the route.
-export const arrivalEye = new Vector3(0, 2.8, 52);
-export const arrivalLook = new Vector3(-5, 35, -55);
+// The visitor begins on the near terrace and winds through the five districts.
+export const arrivalEye = new Vector3(0, 7, 68);
+export const arrivalLook = new Vector3(0, 28, -84);
 export const arrivalRoute = new CatmullRomCurve3([
   arrivalEye,
-  new Vector3(0.4, 2.8, 36),
-  new Vector3(1.2, 3.0, 15),
-  new Vector3(0, 3.2, -9),
+  new Vector3(1, 8, 49),
+  new Vector3(25, 10, 29),
+  new Vector3(44, 11, 7),
+  new Vector3(7, 12, -17),
+  new Vector3(-49, 16, -37),
+  new Vector3(-84, 18, -58),
+  new Vector3(-42, 22, -81),
 ]);
 export const arrivalTargets = new CatmullRomCurve3([
   arrivalLook,
-  new Vector3(-3, 29, -55),
-  new Vector3(-1, 21, -55),
-  new Vector3(0, 12, -55),
+  new Vector3(0, 34, -81),
+  new Vector3(18, 43, -86),
+  new Vector3(-9, 48, -85),
+  new Vector3(-44, 37, -68),
+  new Vector3(-96, 31, -51),
+  new Vector3(-116, 26, -45),
+  new Vector3(-58, 30, -87),
 ]);
-// Later legs can supply their own eye/target splines without changing native scrolling.
 export const futureDestinations = [
   'priceuniverse',
   'unirag',

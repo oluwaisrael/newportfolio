@@ -1,43 +1,121 @@
 {
   "initial": {
-    "metrics": {
-      "fps": 60,
-      "calls": 57,
-      "triangles": 48110,
-      "geometries": 38,
-      "textures": 6
+    "headline": {
+      "x": 60.796875,
+      "y": 178.0625,
+      "width": 440,
+      "height": 89.34375,
+      "top": 178.0625,
+      "right": 500.796875,
+      "bottom": 267.40625,
+      "left": 60.796875
     },
-    "camera": {
-      "progress": 0,
-      "position": [0, 2.8, 52],
-      "target": [-5, 35, -55]
+    "sound": {
+      "x": 1383.078125,
+      "y": 900,
+      "width": 65.921875,
+      "height": 32,
+      "top": 900,
+      "right": 1449,
+      "bottom": 932,
+      "left": 1383.078125
     },
+    "districts": [
+      {
+        "name": "THE SYSTEMS CORESTATISTICS",
+        "bounds": {
+          "x": 880,
+          "y": 192,
+          "width": 130,
+          "height": 61.75,
+          "top": 192,
+          "right": 1010,
+          "bottom": 253.75,
+          "left": 880
+        }
+      },
+      {
+        "name": "UniRAGDOCUMENT RETRIEVAL",
+        "bounds": {
+          "x": 448,
+          "y": 316.796875,
+          "width": 130,
+          "height": 53.15625,
+          "top": 316.796875,
+          "right": 578,
+          "bottom": 369.953125,
+          "left": 448
+        }
+      },
+      {
+        "name": "PriceUniversePRICE INTELLIGENCE",
+        "bounds": {
+          "x": 1120,
+          "y": 316.796875,
+          "width": 130,
+          "height": 53.15625,
+          "top": 316.796875,
+          "right": 1250,
+          "bottom": 369.953125,
+          "left": 1120
+        }
+      },
+      {
+        "name": "Neural NetworkFROM SCRATCH",
+        "bounds": {
+          "x": 256,
+          "y": 528,
+          "width": 130,
+          "height": 64.34375,
+          "top": 528,
+          "right": 386,
+          "bottom": 592.34375,
+          "left": 256
+        }
+      },
+      {
+        "name": "LaelLOCAL INTELLIGENCE",
+        "bounds": {
+          "x": 1440,
+          "y": 412.796875,
+          "width": 130,
+          "height": 53.15625,
+          "top": 412.796875,
+          "right": 1570,
+          "bottom": 465.953125,
+          "left": 1440
+        }
+      },
+      {
+        "name": "RoamDECISION SYSTEMS",
+        "bounds": {
+          "x": 1344,
+          "y": 614.390625,
+          "width": 130,
+          "height": 53.15625,
+          "top": 614.390625,
+          "right": 1474,
+          "bottom": 667.546875,
+          "left": 1344
+        }
+      }
+    ],
+    "metrics": { "fps": 59, "calls": 36, "triangles": 163510, "geometries": 29, "textures": 6 },
+    "camera": { "progress": 0, "position": [0, 7, 68], "target": [0, 28, -84] },
     "quality": "balanced",
     "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
   },
   "scroll": {
     "camera": {
-      "progress": 0.4629629313439816,
-      "position": [0.9890264106822625, 2.909085857656898, 23.802126812773484],
-      "target": [-1.7794399720271974, 24.568335983587478, -55]
+      "progress": 0.46296293435006447,
+      "position": [5.120329148066209, 12.0935770055962, -17.791755646155845],
+      "target": [-59.61676258423036, 34.714791303468594, -62.351387242898674]
     },
     "scrollY": 800
   },
   "qualitySamples": {
-    "low": {
-      "fps": 60,
-      "calls": 57,
-      "triangles": 48110,
-      "geometries": 38,
-      "textures": 6
-    },
-    "high": {
-      "fps": 60,
-      "calls": 57,
-      "triangles": 48110,
-      "geometries": 38,
-      "textures": 6
-    }
+    "low": { "fps": 60, "calls": 36, "triangles": 163510, "geometries": 30, "textures": 6 },
+    "high": { "fps": 53, "calls": 36, "triangles": 163510, "geometries": 30, "textures": 6 }
   },
   "mobileCanvas": 0,
   "errors": []

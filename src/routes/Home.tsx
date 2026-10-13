@@ -1,23 +1,84 @@
-import { useCapabilities } from '../hooks/useCapabilities';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { useCapabilities } from '../hooks/useCapabilities';
+const pins = [
+  {
+    slug: 'core',
+    name: 'THE SYSTEMS CORE',
+    detail: 'STATISTICS\nBACKEND\nAI/ML\nCREATIVE TECH',
+    x: 55,
+    y: 20,
+    color: '#e7c078',
+    href: '#arrival-path',
+  },
+  {
+    slug: 'unirag',
+    name: 'UniRAG',
+    detail: 'DOCUMENT RETRIEVAL\nRAG SYSTEMS\nAI APPLICATIONS',
+    x: 28,
+    y: 33,
+    color: '#a9c8ff',
+    href: '/work/unirag',
+  },
+  {
+    slug: 'priceuniverse',
+    name: 'PriceUniverse',
+    detail: 'PRICE INTELLIGENCE\nSCRAPING\nBACKEND SYSTEMS',
+    x: 70,
+    y: 33,
+    color: '#a6d386',
+    href: '/work/priceuniverse',
+  },
+  {
+    slug: 'neural-network',
+    name: 'Neural Network',
+    detail: 'FROM SCRATCH\nDEEP LEARNING\nFUNDAMENTALS\nNUMPY',
+    x: 16,
+    y: 55,
+    color: '#dfad65',
+    href: '/work/neural-network',
+  },
+  {
+    slug: 'lael',
+    name: 'Lael',
+    detail: 'LOCAL INTELLIGENCE\nPERSONAL OS\nTAURI + RUST',
+    x: 90,
+    y: 43,
+    color: '#c9d4e1',
+    href: '/work/lael',
+  },
+  {
+    slug: 'roam',
+    name: 'Roam',
+    detail: 'DECISION SYSTEMS\nREAL PLACES\nNATURAL LANGUAGE',
+    x: 84,
+    y: 64,
+    color: '#dfa875',
+    href: '/work/roam',
+  },
+];
+const index = [
+  ['00', 'ORIGIN', '#arrival-title'],
+  ['01', 'STATISTICS', '#statistics'],
+  ['02', 'SYSTEMS', '#arrival-path'],
+  ['03', 'WORK', '/work'],
+  ['04', 'LAB', '/lab'],
+  ['05', 'ABOUT', '/about'],
+  ['06', 'CONTACT', 'mailto:adeotiisrael93@gmail.com'],
+];
 export default function Home() {
   const { realtime } = useCapabilities();
   return (
     <>
       <section className="arrival" aria-labelledby="arrival-title">
-        <div className="arrival-top mono">
-          <span>
-            <i className="status-dot" /> A PERSONAL EXPLORATION
-          </span>
-          <span>SYSTEMS WORLD — VOL. 01</span>
-        </div>
         <div className="arrival-copy">
-          <p className="eyebrow">STATISTICS × SOFTWARE × AI</p>
+          <p id="statistics" className="eyebrow">
+            STATISTICS × SOFTWARE × AI
+          </p>
           <h1 id="arrival-title">
             I TURN DATA
             <br />
-            INTO SYSTEMS.
+            <em>INTO SYSTEMS.</em>
           </h1>
           <p className="arrival-description">
             Statistics underneath.
@@ -30,74 +91,77 @@ export default function Home() {
           </p>
           <div className="arrival-actions">
             <a href={realtime ? '#arrival-path' : '#discover'} className="pill">
-              Enter the world <span>↓</span>
+              Enter the world <span>⟶</span>
             </a>
             <Link to="/ask" className="text-link">
-              Ask Derin <span>↗</span>
+              Ask Derin <span>⟶</span>
             </Link>
           </div>
         </div>
-        <nav className="arrival-index" aria-label="World index">
-          <span className="mono">WORLD INDEX / 08</span>
-          {projects.map((p) => (
-            <Link key={p.slug} to={'/work/' + p.slug}>
-              <span className="mono">{p.number}</span>
-              {p.title}
-              <span aria-hidden="true">↗</span>
-            </Link>
+        <nav className="arrival-sections" aria-label="World sections">
+          {index.map(([number, label, href]) => (
+            <a href={href} key={number}>
+              <span>{number}</span>
+              {label}
+            </a>
           ))}
-          <Link to="/about">
-            <span className="mono">06</span>About<span aria-hidden="true">↗</span>
-          </Link>
-          <Link to="/lab">
-            <span className="mono">07</span>Lab<span aria-hidden="true">↗</span>
-          </Link>
-          <a href="mailto:adeotiisrael93@gmail.com">
-            <span className="mono">08</span>Contact<span aria-hidden="true">↗</span>
-          </a>
         </nav>
+        <div className="arrival-pins" aria-label="Project districts">
+          {pins.map((pin) => {
+            const content = (
+              <>
+                <i aria-hidden="true" />
+                <span className="pin-copy">
+                  <strong>{pin.name}</strong>
+                  <small>{pin.detail}</small>
+                </span>
+              </>
+            );
+            return pin.href.startsWith('/') ? (
+              <Link
+                key={pin.slug}
+                to={pin.href}
+                className={'district-pin pin-' + pin.slug}
+                style={
+                  { left: pin.x + '%', top: pin.y + '%', '--pin': pin.color } as React.CSSProperties
+                }
+              >
+                {content}
+              </Link>
+            ) : (
+              <a
+                key={pin.slug}
+                href={pin.href}
+                className={'district-pin pin-' + pin.slug}
+                style={
+                  { left: pin.x + '%', top: pin.y + '%', '--pin': pin.color } as React.CSSProperties
+                }
+              >
+                {content}
+              </a>
+            );
+          })}
+        </div>
         <div className="arrival-bottom">
-          <span className="mono">
+          <span className="arrival-identity mono">
             ADEOTI ISRAEL
             <br />
-            <span className="muted">STATISTICS STUDENT / BUILDER</span>
+            <span>STATISTICS STUDENT / BUILDER</span>
           </span>
           <a href="#discover" className="scroll-cue mono">
-            SCROLL TO DISCOVER <span>↓</span>
+            <i aria-hidden="true">↓</i>
+            <span>SCROLL TO EXPLORE</span>
           </a>
-          <span className="mono arrival-coordinate">
-            06.5244° N<br />
-            03.3792° E
-          </span>
         </div>
       </section>
       <div
         className="arrival-traverse"
         id="arrival-path"
-        aria-label="The approach to the central system"
+        aria-label="The winding path into the world"
       >
-        <div className="traverse-caption">
-          <span className="mono">00 / ARRIVAL</span>
-          <p>
-            Every system begins
-            <br />
-            with a question.
-          </p>
-          <a href="#discover" className="text-link">
-            Find your direction <span>↓</span>
-          </a>
-        </div>
+        <div id="discover" />
       </div>
-      <section id="discover" className="discovery">
-        <div className="section-heading">
-          <p className="eyebrow">01 / THE TERRITORY</p>
-          <h2>
-            Five destinations.
-            <br />
-            One connected world.
-          </h2>
-          <p className="muted">Follow a question into the system behind it.</p>
-        </div>
+      <section className="discovery" aria-label="Explore the world">
         <div className="destination-index">
           {projects.map((p) => (
             <Link key={p.slug} to={'/work/' + p.slug} className="destination-line">
@@ -111,12 +175,9 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <Link to="/work" className="text-link">
-          Explore the world map <span>↗</span>
-        </Link>
       </section>
       <section className="direction">
-        <p className="eyebrow">02 / THE PERSON BEHIND THE PATTERNS</p>
+        <p className="eyebrow">05 / THE PERSON BEHIND THE SYSTEMS</p>
         <h2>
           Learning to see.
           <br />
@@ -127,22 +188,7 @@ export default function Home() {
           at the intersection of data, backend engineering and applied AI.
         </p>
         <Link to="/about" className="text-link">
-          A direction of travel <span>↗</span>
-        </Link>
-      </section>
-      <section className="home-lab">
-        <p className="eyebrow">03 / OPEN QUESTIONS</p>
-        <h2>
-          Some ideas need
-          <br />
-          to be touched.
-        </h2>
-        <p>Change a distribution. Follow a retrieval. Look underneath an activation.</p>
-        <Link to="/lab" className="text-link">
-          Step into the lab <span>↗</span>
-        </Link>
-        <Link to="/ask" className="text-link">
-          Ask the work <span>↗</span>
+          About Derin <span>⟶</span>
         </Link>
       </section>
     </>

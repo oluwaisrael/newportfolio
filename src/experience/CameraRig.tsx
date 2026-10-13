@@ -6,7 +6,7 @@ import { useWorld } from './WorldController';
 import { findProject } from '../data/projects';
 import type { Vec3 } from '../data/types';
 const positions: Record<string, { eye: Vec3; target: Vec3 }> = {
-  entry: { eye: [0, 2.8, 52], target: [0, 28, -55] },
+  entry: { eye: [0, 7, 68], target: [0, 28, -84] },
   'work-map': { eye: [43, 52, 58], target: [0, 0, -7] },
   about: { eye: [-35, 13, 24], target: [-14, 2, -10] },
   lab: { eye: [25, 20, 25], target: [14, 2, -9] },
@@ -51,7 +51,7 @@ export function CameraRig() {
     look.current.lerp(vectors.target, blend);
     camera.lookAt(look.current);
     if (camera instanceof PerspectiveCamera) {
-      const fov = state === 'entry' ? 62 : 43;
+      const fov = state === 'entry' ? 48 : 43;
       if (camera.fov !== fov) {
         camera.fov = fov;
         camera.updateProjectionMatrix();

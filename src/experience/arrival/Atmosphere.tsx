@@ -55,15 +55,15 @@ function cloudSky() {
         v = dz / Math.max(0.16, dy + 0.36);
       const warp = fbm(u * 3.4, v * 3.4),
         cloud = fbm(u * 2.2 + warp, v * 2.2 + warp);
-      const sun = Math.exp(-((dx - 0.04) ** 2 + (dy - 0.75) ** 2 + (dz + 0.66) ** 2) * 24);
-      const silver = Math.exp(-((dx - 0.04) ** 2 + (dy - 0.75) ** 2 + (dz + 0.66) ** 2) * 220);
+      const sun = Math.exp(-((dx - 0.01) ** 2 + (dy - 0.19) ** 2 + (dz + 0.98) ** 2) * 24);
+      const silver = Math.exp(-((dx - 0.01) ** 2 + (dy - 0.19) ** 2 + (dz + 0.98) ** 2) * 220);
       const value = smooth(0.25, 0.76, cloud),
         horizon = smooth(-0.1, 0.35, dy);
       const index = (y * width + x) * 4;
       for (let channel = 0; channel < 3; channel++) {
-        const dark = [0.07, 0.105, 0.125][channel],
-          light = [0.42, 0.49, 0.5][channel],
-          mist = [0.4, 0.49, 0.51][channel];
+        const dark = [0.008, 0.012, 0.019][channel],
+          light = [0.08, 0.105, 0.145][channel],
+          mist = [0.09, 0.12, 0.16][channel];
         const color =
           mist * (1 - horizon) +
           (dark + (light - dark) * value + sun * 0.25 + silver * 0.42) * horizon;
@@ -92,11 +92,12 @@ export function Atmosphere() {
   }, [scene, sky]);
   return (
     <>
-      <fog attach="fog" args={['#82999c', 38, 245]} />
-      <hemisphereLight args={['#b9cbce', '#242c30', 2.1]} />
-      <ambientLight color="#9caeb3" intensity={0.4} />
-      <directionalLight position={[-35, 100, -25]} color="#e3e2ce" intensity={3.2} />
-      <directionalLight position={[25, 20, 55]} color="#93a4aa" intensity={1.2} />
+      <fog attach="fog" args={['#242a34', 85, 480]} />
+      <hemisphereLight args={['#8196ae', '#10151d', 1.15]} />
+      <ambientLight color="#b8c8d2" intensity={0.42} />
+      <directionalLight position={[0, 180, -115]} color="#fff0d8" intensity={2.8} />
+      <directionalLight position={[-35, 100, -25]} color="#d3dceb" intensity={1.35} />
+      <directionalLight position={[25, 20, 55]} color="#93a4aa" intensity={0.45} />
       <pointLight position={[0, 5, -39]} color="#ffe5bb" intensity={160} distance={32} decay={2} />
     </>
   );

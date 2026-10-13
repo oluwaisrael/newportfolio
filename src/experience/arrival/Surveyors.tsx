@@ -60,17 +60,24 @@ export function Surveyors() {
   return (
     <group>
       {[
-        [1.1, 0, 38],
-        [7, 0, -8],
-        [8.1, 0, -10],
+        [-4, 2.4, 52],
+        [12, 0, -6],
+        [15, 0, -9],
       ].map((p, i) => (
         <mesh
           key={i}
           geometry={geometry}
+          scale={i === 0 ? 1.55 : 1}
           position={p as [number, number, number]}
           rotation={[0, i === 0 ? 0 : 0.2, 0]}
         >
-          <meshStandardMaterial color="#101b22" roughness={0.78} metalness={0.15} />
+          <meshStandardMaterial
+            color="#26323a"
+            emissive="#101720"
+            emissiveIntensity={0.35}
+            roughness={0.72}
+            metalness={0.18}
+          />
         </mesh>
       ))}
     </group>

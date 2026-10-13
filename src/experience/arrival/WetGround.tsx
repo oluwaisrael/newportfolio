@@ -34,8 +34,8 @@ export function WetGround({ quality }: { quality: Quality }) {
       vec4 rippled=vUv; rippled.x+=(n-.5)*.003*vUv.w; rippled.y+=(n-.5)*.0008*vUv.w;
       vec4 base=texture2DProj(tDiffuse,rippled);
       float wet=smoothstep(.2,.75,noise(groundUv*.43));
-      base.rgb=mix(vec3(.045,.058,.064),base.rgb,.23+wet*.40);
-      base.rgb+= (n-.5)*.012;
+      base.rgb=mix(vec3(.09,.115,.13),base.rgb,.36+wet*.46);
+      base.rgb+= (n-.5)*.018;
     `,
       );
     return reflector;
