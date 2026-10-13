@@ -15,6 +15,11 @@ declare global {
 export function RuntimeQuality({ onPressure }: { onPressure: () => void }) {
   const sample = useRef({ time: 0, frames: 0, warmup: 0, notified: false });
   useFrame(({ gl }, delta) => {
+    // Count the reflection pass as well as the main scene, once per animation frame.
+    gl.info.autoReset = false;
+    const calls = gl.info.render.calls;
+    const triangles = gl.info.render.triangles;
+    gl.info.reset();
     const s = sample.current;
     s.warmup += delta;
     if (s.warmup < 8 || delta > 1) return;
@@ -25,8 +30,8 @@ export function RuntimeQuality({ onPressure }: { onPressure: () => void }) {
     if (import.meta.env.DEV)
       window.__worldMetrics = {
         fps: Math.round(fps),
-        calls: gl.info.render.calls,
-        triangles: gl.info.render.triangles,
+        calls,
+        triangles,
         geometries: gl.info.memory.geometries,
         textures: gl.info.memory.textures,
       };

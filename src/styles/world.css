@@ -101,3 +101,27 @@
 .ask-guide {
   pointer-events: auto;
 }
+
+.world-arrival .world-vignette {
+  background:
+    linear-gradient(90deg, #060c1270, transparent 40%, transparent 78%, #060c1250),
+    linear-gradient(0deg, #050a1060, transparent 24%, transparent 80%, #050a1080);
+}
+.world-controls {
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+}
+.world-arrival .world-artwork {
+  background-image: url('/images/arrival-still.webp');
+}
+@media (max-width: 900px), (pointer: coarse) {
+  .world-arrival .world-artwork {
+    background-image: url('/images/arrival-mobile.webp');
+  }
+}
+
+.site-header nav a {
+  color: #c8d0d2;
+  text-shadow: 0 1px 8px #020607;
+}

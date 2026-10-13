@@ -134,3 +134,129 @@
 .home-lab .text-link {
   margin-right: 40px;
 }
+
+/* The architecture owns the center; the interface occupies the outer edges. */
+.arrival {
+  padding-top: 125px;
+  padding-bottom: 72px;
+}
+.arrival-top {
+  color: #c2cbcc;
+}
+.arrival-copy {
+  max-width: 485px;
+  padding-top: 0;
+  padding-bottom: 24px;
+  margin-top: auto;
+  margin-bottom: 60px;
+}
+.arrival-copy h1 {
+  font-size: clamp(44px, 4.1vw, 66px);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+  margin: 20px 0;
+}
+.arrival-copy .eyebrow {
+  font-size: 8px;
+  color: #bdc8ca;
+  letter-spacing: 0.18em;
+}
+.arrival-description {
+  color: #c4cbcb;
+  font-size: 11px;
+  line-height: 1.85;
+  margin-top: 22px;
+}
+.arrival-actions {
+  margin-top: 26px;
+  gap: 24px;
+}
+.arrival-actions .pill {
+  background: #e0e4dc;
+  color: #182023;
+  border: none;
+  border-radius: 0;
+}
+.arrival-index {
+  position: absolute;
+  right: var(--gutter);
+  top: 37%;
+  width: 185px;
+  pointer-events: auto;
+}
+.arrival-index > .mono {
+  display: block;
+  color: #a9b5b7;
+  font-size: 8px;
+  margin-bottom: 22px;
+}
+.arrival-index a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 10px;
+  color: #c7cfcf;
+  transition: color 0.2s;
+}
+.arrival-index a:hover {
+  color: #fff;
+}
+.arrival-index a > .mono {
+  font-size: 7px;
+  color: #95a5a8;
+}
+.arrival-index a > span:last-child {
+  margin-left: auto;
+  opacity: 0;
+}
+.arrival-index a:hover > span:last-child,
+.arrival-index a:focus-visible > span:last-child {
+  opacity: 1;
+}
+.arrival-coordinate {
+  margin-bottom: 0;
+}
+.arrival-traverse {
+  height: 85svh;
+  position: relative;
+  pointer-events: none;
+}
+.traverse-caption {
+  position: absolute;
+  bottom: 18%;
+  left: var(--gutter);
+}
+.traverse-caption .mono {
+  color: #bec9ca;
+  font-size: 9px;
+}
+.traverse-caption p {
+  font: 400 36px/1.2 var(--display);
+  letter-spacing: -0.04em;
+  margin: 20px 0;
+}
+@media (max-width: 1100px) {
+  .arrival-index {
+    width: 150px;
+  }
+}
+@media (max-width: 900px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .arrival-traverse {
+    display: none;
+  }
+  .arrival-index {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .arrival-bottom {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .arrival-coordinate {
+    justify-self: end;
+  }
+}

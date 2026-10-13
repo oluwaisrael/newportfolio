@@ -32,7 +32,11 @@ export function WorldLayer() {
   return (
     <>
       <div
-        className={'world-layer ' + (ready && active ? 'world-ready' : 'world-static')}
+        className={
+          'world-layer ' +
+          (state === 'entry' ? 'world-arrival ' : '') +
+          (ready && active ? 'world-ready' : 'world-static')
+        }
         aria-hidden="true"
       >
         <div

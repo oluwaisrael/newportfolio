@@ -1,3 +1,5 @@
+import { ArrivalWorld } from './arrival/ArrivalWorld';
+import { useWorld } from './WorldController';
 import { EntryFormation } from './EntryFormation';
 import { Infrastructure } from './systems/Infrastructure';
 import { Strata } from './systems/Strata';
@@ -16,6 +18,14 @@ import { RoamWorld } from './projects/RoamWorld';
 import { LaelWorld } from './projects/LaelWorld';
 import { qualitySettings, type Quality } from './quality';
 export function World({ quality }: { quality: Quality }) {
+  const { state } = useWorld();
+  if (state === 'entry')
+    return (
+      <>
+        <CameraRig />
+        <ArrivalWorld quality={quality} />
+      </>
+    );
   const settings = qualitySettings[quality];
   return (
     <>

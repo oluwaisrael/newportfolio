@@ -1,6 +1,8 @@
+import { useCapabilities } from '../hooks/useCapabilities';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 export default function Home() {
+  const { realtime } = useCapabilities();
   return (
     <>
       <section className="arrival" aria-labelledby="arrival-title">
@@ -13,24 +15,47 @@ export default function Home() {
         <div className="arrival-copy">
           <p className="eyebrow">STATISTICS × SOFTWARE × AI</p>
           <h1 id="arrival-title">
-            I turn data
+            I TURN DATA
             <br />
-            into <em>systems.</em>
+            INTO SYSTEMS.
           </h1>
           <p className="arrival-description">
-            Statistics underneath. Backend at the foundation. <br />
-            AI/ML at the frontier. Interactive systems on the surface.
+            Statistics underneath.
+            <br />
+            Backend at the foundation.
+            <br />
+            AI/ML at the frontier.
+            <br />
+            Interactive systems on the surface.
           </p>
           <div className="arrival-actions">
-            <Link to="/work" className="pill">
-              Enter the world <span>↗</span>
-            </Link>
+            <a href={realtime ? '#arrival-path' : '#discover'} className="pill">
+              Enter the world <span>↓</span>
+            </a>
             <Link to="/ask" className="text-link">
               Ask Derin <span>↗</span>
             </Link>
           </div>
         </div>
-        <div className="arrival-side mono">OBSERVATIONS → PATTERNS → SYSTEMS</div>
+        <nav className="arrival-index" aria-label="World index">
+          <span className="mono">WORLD INDEX / 08</span>
+          {projects.map((p) => (
+            <Link key={p.slug} to={'/work/' + p.slug}>
+              <span className="mono">{p.number}</span>
+              {p.title}
+              <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
+          <Link to="/about">
+            <span className="mono">06</span>About<span aria-hidden="true">↗</span>
+          </Link>
+          <Link to="/lab">
+            <span className="mono">07</span>Lab<span aria-hidden="true">↗</span>
+          </Link>
+          <a href="mailto:adeotiisrael93@gmail.com">
+            <span className="mono">08</span>Contact<span aria-hidden="true">↗</span>
+          </a>
+        </nav>
         <div className="arrival-bottom">
           <span className="mono">
             ADEOTI ISRAEL
@@ -46,6 +71,23 @@ export default function Home() {
           </span>
         </div>
       </section>
+      <div
+        className="arrival-traverse"
+        id="arrival-path"
+        aria-label="The approach to the central system"
+      >
+        <div className="traverse-caption">
+          <span className="mono">00 / ARRIVAL</span>
+          <p>
+            Every system begins
+            <br />
+            with a question.
+          </p>
+          <a href="#discover" className="text-link">
+            Find your direction <span>↓</span>
+          </a>
+        </div>
+      </div>
       <section id="discover" className="discovery">
         <div className="section-heading">
           <p className="eyebrow">01 / THE TERRITORY</p>

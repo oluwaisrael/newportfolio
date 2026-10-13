@@ -172,7 +172,7 @@
     font-size: 11px;
   }
   .arrival-description br {
-    display: none;
+    display: initial;
   }
   .arrival-copy > .eyebrow {
     font-size: 8px;

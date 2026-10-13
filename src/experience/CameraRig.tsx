@@ -1,11 +1,12 @@
+import { arrivalEye, arrivalLook, arrivalRoute, arrivalTargets } from './arrival/route';
 import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
-import { Vector3, MathUtils } from 'three';
+import { Vector3, PerspectiveCamera } from 'three';
 import { useWorld } from './WorldController';
 import { findProject } from '../data/projects';
 import type { Vec3 } from '../data/types';
 const positions: Record<string, { eye: Vec3; target: Vec3 }> = {
-  entry: { eye: [47, 27, 57], target: [0, 0, -5] },
+  entry: { eye: [0, 2.8, 52], target: [0, 28, -55] },
   'work-map': { eye: [43, 52, 58], target: [0, 0, -7] },
   about: { eye: [-35, 13, 24], target: [-14, 2, -10] },
   lab: { eye: [25, 20, 25], target: [14, 2, -9] },
@@ -13,13 +14,21 @@ const positions: Record<string, { eye: Vec3; target: Vec3 }> = {
 };
 export function CameraRig() {
   const { state, progress, highlight } = useWorld();
-  const look = useRef(new Vector3(0, 0, -5));
+  const look = useRef(arrivalLook.clone());
   const vectors = useMemo(() => ({ eye: new Vector3(), target: new Vector3() }), []);
-  const elapsed = useRef(0);
+  const previousState = useRef(state);
+  const routeProgress = useRef(0);
   useFrame(({ camera, pointer }, delta) => {
     const dt = Math.min(delta, 0.05);
-    elapsed.current += dt;
-    const project = findProject(highlight ?? state);
+    if (previousState.current !== state) {
+      if (state === 'entry') {
+        camera.position.copy(arrivalEye);
+        look.current.copy(arrivalLook);
+        routeProgress.current = 0;
+      }
+      previousState.current = state;
+    }
+    const project = state === 'entry' ? undefined : findProject(highlight ?? state);
     if (project) {
       const [x, y, z] = project.position;
       vectors.eye.set(x + 18, y + 12, z + 24);
@@ -29,19 +38,38 @@ export function CameraRig() {
       vectors.eye.set(...shot.eye);
       vectors.target.set(...shot.target);
       if (state === 'entry') {
-        vectors.eye.x -= progress.current * 18;
-        vectors.eye.y += progress.current * 9;
-        vectors.eye.z -= progress.current * 15;
-        vectors.eye.y += Math.max(0, 1 - elapsed.current / 8) * 5;
+        routeProgress.current +=
+          (progress.current - routeProgress.current) * (1 - Math.exp(-dt * 3));
+        arrivalRoute.getPointAt(routeProgress.current, vectors.eye);
+        arrivalTargets.getPointAt(routeProgress.current, vectors.target);
       }
     }
-    vectors.eye.x += pointer.x * 0.65;
-    vectors.eye.y += pointer.y * 0.3;
+    vectors.eye.x += pointer.x * 0.28;
+    vectors.eye.y += pointer.y * 0.12;
     const blend = 1 - Math.exp(-dt * 1.25);
     camera.position.lerp(vectors.eye, blend);
     look.current.lerp(vectors.target, blend);
     camera.lookAt(look.current);
-    camera.far = MathUtils.lerp(camera.far, 220, blend);
+    if (camera instanceof PerspectiveCamera) {
+      const fov = state === 'entry' ? 62 : 43;
+      if (camera.fov !== fov) {
+        camera.fov = fov;
+        camera.updateProjectionMatrix();
+      }
+    }
+    if (import.meta.env.DEV) {
+      window.__arrivalCamera = {
+        progress: routeProgress.current,
+        position: camera.position.toArray(),
+        target: look.current.toArray(),
+      };
+    }
   });
   return null;
+}
+
+declare global {
+  interface Window {
+    __arrivalCamera?: { progress: number; position: number[]; target: number[] };
+  }
 }
