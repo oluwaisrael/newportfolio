@@ -1,0 +1,44 @@
+{
+  "initial": {
+    "metrics": {
+      "fps": 60,
+      "calls": 57,
+      "triangles": 48110,
+      "geometries": 38,
+      "textures": 6
+    },
+    "camera": {
+      "progress": 0,
+      "position": [0, 2.8, 52],
+      "target": [-5, 35, -55]
+    },
+    "quality": "balanced",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
+  },
+  "scroll": {
+    "camera": {
+      "progress": 0.4629629313439816,
+      "position": [0.9890264106822625, 2.909085857656898, 23.802126812773484],
+      "target": [-1.7794399720271974, 24.568335983587478, -55]
+    },
+    "scrollY": 800
+  },
+  "qualitySamples": {
+    "low": {
+      "fps": 60,
+      "calls": 57,
+      "triangles": 48110,
+      "geometries": 38,
+      "textures": 6
+    },
+    "high": {
+      "fps": 60,
+      "calls": 57,
+      "triangles": 48110,
+      "geometries": 38,
+      "textures": 6
+    }
+  },
+  "mobileCanvas": 0,
+  "errors": []
+}
