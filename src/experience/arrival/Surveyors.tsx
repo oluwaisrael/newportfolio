@@ -71,13 +71,7 @@ export function Surveyors() {
           position={p as [number, number, number]}
           rotation={[0, i === 0 ? 0 : 0.2, 0]}
         >
-          <meshStandardMaterial
-            color="#26323a"
-            emissive="#101720"
-            emissiveIntensity={0.35}
-            roughness={0.72}
-            metalness={0.18}
-          />
+          <meshStandardMaterial color="#373737" roughness={0.9} metalness={0.02} />
         </mesh>
       ))}
     </group>

@@ -15,7 +15,7 @@ const browser = await chromium.launch({
       : ['--enable-webgl', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
 });
 const page = await browser.newPage({
-  viewport: { width: 1600, height: 960 },
+  viewport: { width: 1536, height: 1024 },
   deviceScaleFactor: 1,
 });
 const errors = [];
@@ -29,9 +29,10 @@ await page.waitForTimeout(16000);
 await page.screenshot({ path: output + '/arrival-ui.png' });
 const style = await page.addStyleTag({
   content:
-    '.site-header,#main,.site-footer,.world-controls,.world-vignette{visibility:hidden!important}',
+    '.site-header,#main,.site-footer,.world-controls,.world-vignette,.arrival-pins,.arrival-sections,.arrival-bottom{visibility:hidden!important}',
 });
 const raw = await page.screenshot({ path: output + '/arrival-geometry.png' });
+await page.screenshot({ path: output + '/arrival-blockout.png' });
 if (process.argv.includes('--update-stills')) {
   await sharp(raw).webp({ quality: 88 }).toFile('public/images/arrival-still.webp');
   await sharp(raw).resize(900).webp({ quality: 85 }).toFile('public/images/arrival-mobile.webp');
