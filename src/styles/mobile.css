@@ -139,6 +139,13 @@
   }
 }
 @media (max-width: 600px) {
+  .site-header nav a:nth-child(3),
+  .site-header nav a:nth-child(4) {
+    display: none;
+  }
+  .arrival-copy h1 {
+    white-space: normal;
+  }
   .site-header {
     height: 84px;
     gap: 12px;

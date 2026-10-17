@@ -9,6 +9,8 @@ export function Metadata() {
       '/': 'Derin — Adeoti Israel',
       '/work': 'The work — Derin',
       '/about': 'A direction of travel — Derin',
+      '/experience': 'Experience — Derin',
+      '/contact': 'Contact — Derin',
       '/lab': 'Interactive lab — Derin',
       '/ask': 'Ask the work — Derin',
     };

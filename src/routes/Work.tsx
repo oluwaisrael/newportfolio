@@ -4,7 +4,7 @@ export default function Work() {
   return (
     <section className="work-map">
       <div className="page-intro">
-        <p className="eyebrow">INDEX / 01—05</p>
+        <p className="eyebrow">SELECTED WORK / 01—03</p>
         <h1>
           Choose a<br />
           <em>direction.</em>
@@ -30,7 +30,7 @@ export default function Work() {
       </nav>
       <div className="map-legend mono">
         <span>+ SELECT A DESTINATION</span>
-        <span>FIVE INQUIRIES / ONE WORLD</span>
+        <span>THREE ENGINEERING STUDIES / ONE WORLD</span>
       </div>
     </section>
   );

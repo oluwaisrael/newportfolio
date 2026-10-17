@@ -20,6 +20,9 @@ export function Footer() {
         <a href="https://github.com/oluwaisrael" target="_blank" rel="noreferrer">
           GITHUB ↗
         </a>
+        <a href="https://www.linkedin.com/in/adeoti-israel" target="_blank" rel="noreferrer">
+          LINKEDIN ↗
+        </a>
         <Link to="/ask">ASK DERIN ↗</Link>
         <span>LAGOS, NIGERIA</span>
       </div>

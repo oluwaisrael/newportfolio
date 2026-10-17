@@ -20,16 +20,16 @@ export const authoredGuide: AskProvider = {
     {
       id: 'backend',
       question: 'Show me your backend work.',
-      text: 'Start with PriceUniverse. Scrapers, background workers, PostgreSQL and FastAPI connect the collection of marketplace data to an explorable product.',
-      destination: 'priceuniverse',
-      linkLabel: 'Enter PriceUniverse',
+      text: 'The Backend Systems collection examines independent services: asynchronous notifications and real-time chat boundaries.',
+      destination: 'backend-systems',
+      linkLabel: 'Explore backend systems',
     },
     {
-      id: 'unirag',
-      question: 'Explain UniRAG.',
-      text: 'UniRAG connects academic questions to source material. FAISS retrieves semantic matches, BM25 catches exact terms, and a cross-encoder re-ranks candidates before Gemini receives the context.',
-      destination: 'unirag',
-      linkLabel: 'Follow the retrieval',
+      id: 'lael',
+      question: 'What is Lael?',
+      text: 'Lael is a private local desktop AI application joining Tauri, React, Rust, SQLite, local Ollama generation and Whisper speech recognition.',
+      destination: 'lael-ai',
+      linkLabel: 'Explore Lael',
     },
     {
       id: 'learning',
@@ -39,9 +39,9 @@ export const authoredGuide: AskProvider = {
     {
       id: 'represents',
       question: 'Which project best represents you?',
-      text: 'Together they show the direction. PriceUniverse connects infrastructure to an interface; the NumPy network shows my interest in what happens underneath an abstraction.',
-      destination: 'neural-network',
-      linkLabel: 'Look beneath the network',
+      text: 'Lael brings interface and local intelligence together; the public C# API shows a clear, inspectable backend boundary.',
+      destination: 'aiico-product-api',
+      linkLabel: 'Read the API study',
     },
   ],
 };

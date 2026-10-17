@@ -41,9 +41,7 @@ export function WorldLayer() {
       >
         <div
           className="world-artwork"
-          style={
-            artwork ? { backgroundImage: `url(/images/world-${artwork.slug}.webp)` } : undefined
-          }
+          style={artwork ? { backgroundImage: 'url(/images/arrival-still.webp)' } : undefined}
         />
         {active && (
           <SceneBoundary onFailure={failure}>
@@ -59,7 +57,7 @@ export function WorldLayer() {
         )}
         <div className="world-vignette" />
       </div>
-      <div className="world-controls">
+      <div className={'world-controls' + (state === 'entry' && active ? ' arrival-controls' : '')}>
         <SoundControl />
         <span className="mono">{active ? 'WORLD / LIVE' : 'WORLD / STILL'}</span>
         {active && (

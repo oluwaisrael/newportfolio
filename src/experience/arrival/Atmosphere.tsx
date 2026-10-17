@@ -83,7 +83,7 @@ export function Atmosphere() {
   useEffect(() => {
     scene.background = sky;
     scene.environment = sky;
-    scene.environmentIntensity = 0.45;
+    scene.environmentIntensity = 0.58;
     return () => {
       if (scene.background === sky) scene.background = null;
       if (scene.environment === sky) scene.environment = null;
@@ -92,13 +92,13 @@ export function Atmosphere() {
   }, [scene, sky]);
   return (
     <>
-      <fog attach="fog" args={['#242a34', 85, 480]} />
-      <hemisphereLight args={['#8196ae', '#10151d', 1.15]} />
-      <ambientLight color="#b8c8d2" intensity={0.42} />
-      <directionalLight position={[0, 180, -115]} color="#fff0d8" intensity={2.8} />
-      <directionalLight position={[-35, 100, -25]} color="#d3dceb" intensity={1.35} />
-      <directionalLight position={[25, 20, 55]} color="#93a4aa" intensity={0.45} />
-      <pointLight position={[0, 5, -39]} color="#ffe5bb" intensity={160} distance={32} decay={2} />
+      <fog attach="fog" args={['#0b1015', 210, 520]} />
+      <hemisphereLight args={['#80afc8', '#0b1015', 1.05]} />
+      <ambientLight color="#9bb2bd" intensity={0.3} />
+      <directionalLight position={[0, 180, -115]} color="#c69b63" intensity={1.65} />
+      <directionalLight position={[-35, 100, -25]} color="#80afc8" intensity={1.7} />
+      <directionalLight position={[25, 20, 55]} color="#a7c4d1" intensity={0.62} />
+      <pointLight position={[0, 5, -39]} color="#c69b63" intensity={140} distance={36} decay={2} />
     </>
   );
 }

@@ -1,0 +1,9 @@
+export const profile = {
+  name: 'Adeoti Israel', identity: 'Derin', email: 'adeotiisrael93@gmail.com',
+  links: { github: 'https://github.com/oluwaisrael', linkedin: 'https://www.linkedin.com/in/adeoti-israel', tiktok: 'https://www.tiktok.com/@_oluwaisrael', instagram: 'https://www.instagram.com/_oluwaisrael/' },
+  positioning: 'Software Developer — Backend Systems, Data & Applied AI', education: 'Statistics, University of Lagos', cgpa: '4.00 / 5.00',
+} as const;
+export const timeline = [['Secondary school', 'The curiosity that earned the nickname cødë.'], ['2023', 'Graphic design, visual identity and freelance creative work.'], ['2024', 'Frontend development and interactive websites for brands.'], ['2025', 'Statistics alongside family work, retail, marketing and personal content.'], ['2026', 'Full-stack engineering, backend systems, data and applied AI.']] as const;
+export const experience = [['AIICO Insurance', 'Software Developer Intern', 'Current · Victoria Island, Lagos'], ['FlyRank AI', 'Junior Backend AI Developer', 'Remote · Egypt-based technology company'], ['TAG Ecosystem', 'AI Engineer', 'AI engineering community and ecosystem'], ['FIC', 'Social Media Marketer & Content Creator', 'Real estate'], ['Double Princess', 'Sales Attendant', 'Vitafoam retail']] as const;
+export const certifications = [['Web Development', 'Selfless Hearts Foundation', 'August 2026'], ['Data Fundamentals', 'IBM', 'June 2026'], ['Data Visualization', 'Kaggle', 'June 2026'], ['Intro to Machine Learning', 'Kaggle', 'June 2026'], ['Pandas', 'Kaggle', 'June 2026'], ['Intermediate Machine Learning', 'Kaggle', 'June 2026'], ['Scientific Computing with Python', 'freeCodeCamp', 'Date unspecified']] as const;
+export const skills = ['Python', 'TypeScript', 'JavaScript', 'C#', 'SQL', 'React', 'React Three Fiber', 'FastAPI', 'Flask', 'PostgreSQL', 'Redis', 'SQLite', 'Rust', 'Tauri', 'NumPy', 'Pandas', 'Scikit-learn', 'Ollama', 'REST APIs', 'Git & GitHub'];

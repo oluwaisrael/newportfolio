@@ -1,4 +1,4 @@
-3/* global document, window */
+/* global document, window */
 import { chromium } from '@playwright/test';
 import assert from 'node:assert/strict';
 const browser = await chromium.launch({

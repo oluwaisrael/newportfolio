@@ -10,6 +10,8 @@ import CaseStudy from '../routes/CaseStudy';
 import About from '../routes/About';
 import Lab from '../routes/Lab';
 import Ask from '../routes/Ask';
+import Experience from '../routes/Experience';
+import Contact from '../routes/Contact';
 export default function App() {
   return (
     <WorldController>
@@ -22,6 +24,8 @@ export default function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/work/:slug" element={<CaseStudy />} />
           <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/lab" element={<Lab />} />
           <Route path="/ask" element={<Ask />} />
           <Route

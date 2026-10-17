@@ -41,7 +41,7 @@ export default function ExperienceCanvas({
       tabIndex={-1}
       dpr={qualitySettings[quality].dpr}
       frameloop={visible && inView ? 'always' : 'never'}
-      camera={{ position: [0, 9.4, 67], fov: 50, near: 0.1, far: 900 }}
+      camera={{ position: [0, 8.5, 68], fov: 50, near: 0.1, far: 900 }}
       gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }}
       onCreated={({ gl }) => {
         setCanvas(gl.domElement);

@@ -1,12 +1,12 @@
 :root {
   color-scheme: dark;
-  --ink: #080b0d;
-  --paper: #efeee7;
+  --ink: #0b1015;
+  --paper: #e9e4d8;
   --muted: #a3aaa9;
   --line: #ffffff24;
-  --cobalt: #7d9cce;
+  --cobalt: #80afc8;
   --lime: #bdca85;
-  --amber: #d9ae75;
+  --amber: #c69b63;
   --violet: #ac9dbb;
   --display: 'Space Grotesk', sans-serif;
   --body: 'Manrope', sans-serif;
@@ -19,6 +19,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
+:root[data-theme='light'] { color-scheme: light; --ink: #eee9dc; --paper: #151b1f; --muted: #586268; --line: #1720272a; }
+:root[data-theme='system'] { color-scheme: light dark; }
+@media (prefers-color-scheme: light) { :root:not([data-theme='dark']) { --ink: #eee9dc; --paper: #151b1f; --muted: #586268; --line: #1720272a; } }
 * {
   box-sizing: border-box;
 }

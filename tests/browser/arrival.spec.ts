@@ -1,8 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('arrival follows native scroll at pedestrian height and can return to its starting shot', async ({
-  page,
-}) => {
+test('arrival follows the elevated route and can return to its starting shot', async ({ page }) => {
   await page.setViewportSize({ width: 1536, height: 960 });
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -17,8 +15,8 @@ test('arrival follows native scroll at pedestrian height and can return to its s
     .poll(() => page.evaluate(() => window.__arrivalCamera?.position[2]))
     .toBeLessThan(35);
   const y = await page.evaluate(() => window.__arrivalCamera!.position[1]);
-  expect(y).toBeGreaterThan(2);
-  expect(y).toBeLessThan(4);
+  expect(y).toBeGreaterThan(8);
+  expect(y).toBeLessThan(24);
   await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
   await expect
     .poll(() => page.evaluate(() => window.__arrivalCamera?.position[2]), { timeout: 10000 })
@@ -37,7 +35,7 @@ test('reduced-motion entry reaches the accessible destination index without WebG
   await expect(page.locator('canvas')).toHaveCount(0);
   await page
     .locator('.destination-index')
-    .getByRole('link', { name: /UniRAG/ })
+    .getByRole('link', { name: /Lael — Local AI/ })
     .click();
-  await expect(page).toHaveURL(/\/work\/unirag$/);
+  await expect(page).toHaveURL(/\/work\/lael-ai$/);
 });

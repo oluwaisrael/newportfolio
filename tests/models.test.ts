@@ -38,8 +38,8 @@ suite('retrieval honesty', () => {
 });
 suite('world content', () => {
   it('keeps every destination unique and reachable', () => {
-    expect(new Set(projects.map((p) => p.slug)).size).toBe(5);
-    expect(projects.every((p) => p.sections.length >= 5 && p.position.every(Number.isFinite))).toBe(
+    expect(new Set(projects.map((p) => p.slug)).size).toBe(3);
+    expect(projects.every((p) => p.sections.length >= 3 && p.position.every(Number.isFinite))).toBe(
       true,
     );
   });

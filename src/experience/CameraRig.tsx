@@ -6,7 +6,7 @@ import { useWorld } from './WorldController';
 import { findProject } from '../data/projects';
 import type { Vec3 } from '../data/types';
 const positions: Record<string, { eye: Vec3; target: Vec3 }> = {
-  entry: { eye: [0, 9.4, 67], target: [0, 32, -91] },
+  entry: { eye: [0, 8.5, 68], target: [0, 28, -91] },
   'work-map': { eye: [43, 52, 58], target: [0, 0, -7] },
   about: { eye: [-35, 13, 24], target: [-14, 2, -10] },
   lab: { eye: [25, 20, 25], target: [14, 2, -9] },

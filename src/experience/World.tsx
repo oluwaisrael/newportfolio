@@ -11,10 +11,6 @@ import { DataField } from './systems/DataField';
 import { Pathways } from './systems/Pathways';
 import { Territories } from './systems/Territories';
 import { Destinations } from './systems/Destinations';
-import { PriceUniverseWorld } from './projects/PriceUniverseWorld';
-import { UniRAGWorld } from './projects/UniRAGWorld';
-import { NeuralNetworkWorld } from './projects/NeuralNetworkWorld';
-import { RoamWorld } from './projects/RoamWorld';
 import { LaelWorld } from './projects/LaelWorld';
 import { qualitySettings, type Quality } from './quality';
 export function World({ quality }: { quality: Quality }) {
@@ -39,10 +35,6 @@ export function World({ quality }: { quality: Quality }) {
         <Architecture count={settings.structures} />
         <Pathways />
         <Territories />
-        <PriceUniverseWorld />
-        <UniRAGWorld />
-        <NeuralNetworkWorld />
-        <RoamWorld />
         <LaelWorld />
       </EntryFormation>
       <Destinations />

@@ -41,6 +41,7 @@ function finish(batch: Batch) {
 function facade(
   structure: Batch,
   recess: Batch,
+  lights: Batch,
   x: number,
   z: number,
   width: number,
@@ -63,6 +64,8 @@ function facade(
       const openingWidth = bayWidth * 0.5;
       const openingHeight = floorHeight * 0.56;
       block(recess, bayX, floorY, front + 0.07, openingWidth, openingHeight, 0.12);
+      if ((floor * 5 + bay * 3 + Math.abs(Math.round(x))) % 13 === 0)
+        block(lights, bayX, floorY, front + 0.145, openingWidth * 0.7, openingHeight * 0.78, 0.08);
       block(
         structure,
         bayX,
@@ -190,6 +193,7 @@ export function createArchitecture() {
   const recess: Batch = [];
   const support: Batch = [];
   const roof: Batch = [];
+  const lights: Batch = [];
   // Arrival forecourt: one broad terrace, oversized edge curbs and readable slab joints.
   block(plaza, 0, -1.2, 38, 250, 2.4, 120);
   block(plaza, 0, -2.15, 38, 254, 0.38, 124);
@@ -200,8 +204,8 @@ export function createArchitecture() {
 
   // Central landmark: a broad inhabited gate with an open central passage,
   // layered piers, a deep lintel and a roof spine set behind the opening.
-  facade(structure, recess, -13, -91, 25, 30, 104, 11);
-  facade(structure, recess, 13, -91, 25, 30, 104, 11);
+  facade(structure, recess, lights, -13, -91, 25, 30, 104, 11);
+  facade(structure, recess, lights, 13, -91, 25, 30, 104, 11);
   block(structure, 0, 105, -91, 48, 11, 35);
   block(roof, 0, 112, -91, 43, 3.2, 29);
   block(structure, 0, 76, -73, 49, 3.2, 4);
@@ -210,16 +214,16 @@ export function createArchitecture() {
   block(structure, 26, 54, -89, 4, 86, 33);
 
   // Midground monoliths are broad, stepped and spaced to preserve long views.
-  facade(structure, recess, -72, -72, 42, 33, 72, 8);
+  facade(structure, recess, lights, -72, -72, 42, 33, 72, 8);
   block(structure, -72, 77, -75, 35, 6, 28);
   block(structure, -72, 57, -52, 47, 5.5, 9);
-  facade(structure, recess, 72, -78, 40, 35, 80, 9);
+  facade(structure, recess, lights, 72, -78, 40, 35, 80, 9);
   block(structure, 72, 85, -81, 34, 6, 29);
   block(structure, 72, 65, -54, 45, 5.5, 9);
-  facade(structure, recess, -116, -41, 30, 27, 50, 6);
-  facade(structure, recess, 116, -47, 31, 28, 59, 7);
-  facade(structure, recess, -105, -113, 31, 26, 64, 7);
-  facade(structure, recess, 108, -120, 35, 30, 69, 8);
+  facade(structure, recess, lights, -116, -41, 30, 27, 50, 6);
+  facade(structure, recess, lights, 116, -47, 31, 28, 59, 7);
+  facade(structure, recess, lights, -105, -113, 31, 26, 64, 7);
+  facade(structure, recess, lights, 108, -120, 35, 30, 69, 8);
 
   // Layered cross-world bridges: broad decks, fascia, underslung trusses and columns.
   for (const [x, y, z, width, depth] of [
@@ -247,6 +251,7 @@ export function createArchitecture() {
     routeDeck: route.deck,
     routeEdge: route.edge,
     routeSupport: route.support,
+    lights: finish(lights),
     routeCurve: route.curve,
   };
 }

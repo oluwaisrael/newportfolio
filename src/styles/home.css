@@ -282,13 +282,13 @@
   z-index: 5;
 }
 .arrival-copy .eyebrow {
-  color: #bbc3cb;
+  color: #d0d6d8;
   font-size: 9px;
   letter-spacing: 0.23em;
   margin-bottom: 12px;
 }
 .arrival-copy h1 {
-  color: #f0f1ef;
+  color: #e9e4d8;
   font-size: clamp(39px, 2.82vw, 46px);
   font-weight: 600;
   letter-spacing: -0.035em;
@@ -297,11 +297,11 @@
   white-space: nowrap;
 }
 .arrival-copy h1 em {
-  color: #c8d0c4;
+  color: #d4d6ce;
   font-style: normal;
 }
 .arrival-description {
-  color: #a5a7ad;
+  color: #c4c8c8;
   font:
     14px/1.42 Georgia,
     'Times New Roman',
@@ -492,7 +492,7 @@
   background: #080a0c80;
   backdrop-filter: blur(6px);
 }
-.world-controls > span.mono {
+.arrival-controls > span.mono {
   display: none;
 }
 .sound-control {

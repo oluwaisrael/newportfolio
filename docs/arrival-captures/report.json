@@ -100,22 +100,22 @@
         }
       }
     ],
-    "metrics": { "fps": 60, "calls": 14, "triangles": 20318, "geometries": 13, "textures": 0 },
-    "camera": { "progress": 0, "position": [0, 9.4, 67], "target": [0, 32, -91] },
+    "metrics": { "fps": 60, "calls": 16, "triangles": 22118, "geometries": 26, "textures": 5 },
+    "camera": { "progress": 0, "position": [0, 8.5, 68], "target": [0, 28, -91] },
     "quality": "balanced",
     "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1, Unspecified Version)"
   },
   "scroll": {
     "camera": {
-      "progress": 0.43402770944298186,
-      "position": [34.812807820003336, 28.766541362786164, -11.26596328098985],
-      "target": [38.331244073190724, 37.69757063869489, -41.588975806120715]
+      "progress": 0.43402773754753204,
+      "position": [32.617466008170474, 19.997158358879847, -15.471640399960489],
+      "target": [28.667612217209747, 16.91801742932017, -26.84026067509322]
     },
     "scrollY": 800
   },
   "qualitySamples": {
-    "low": { "fps": 60, "calls": 14, "triangles": 20318, "geometries": 13, "textures": 0 },
-    "high": { "fps": 60, "calls": 14, "triangles": 20318, "geometries": 13, "textures": 0 }
+    "low": { "fps": 60, "calls": 16, "triangles": 22118, "geometries": 26, "textures": 5 },
+    "high": { "fps": 60, "calls": 16, "triangles": 22118, "geometries": 26, "textures": 5 }
   },
   "mobileCanvas": 0,
   "errors": []

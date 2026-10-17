@@ -1,4 +1,5 @@
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import { ThemeControl } from './ThemeControl';
 export function Header() {
   const home = useLocation().pathname === '/';
   return (
@@ -30,12 +31,14 @@ export function Header() {
             World
           </NavLink>
           <NavLink to="/work">Work</NavLink>
+          <NavLink to="/experience">Experience</NavLink>
           <NavLink to="/lab">Lab</NavLink>
           <NavLink to="/about">About</NavLink>
         </nav>
         <a href="mailto:adeotiisrael93@gmail.com" className="contact-link">
           Let’s talk
         </a>
+        <ThemeControl />
         {home && (
           <span className="arrival-orbit" aria-hidden="true">
             <i />

@@ -1,4 +1,4 @@
-export type ProjectSlug = 'priceuniverse' | 'unirag' | 'neural-network' | 'roam' | 'lael';
+export type ProjectSlug = 'lael-ai' | 'aiico-product-api' | 'backend-systems' | 'priceuniverse' | 'unirag' | 'neural-network' | 'roam' | 'lael';
 export type Vec3 = [number, number, number];
 export interface CaseSection {
   title: string;

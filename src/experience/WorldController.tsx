@@ -11,7 +11,7 @@ import {
 import { useLocation } from 'react-router-dom';
 import type { ProjectSlug } from '../data/types';
 import { findProject } from '../data/projects';
-export type WorldState = 'entry' | 'work-map' | 'about' | 'lab' | 'ask' | ProjectSlug;
+export type WorldState = 'entry' | 'work-map' | 'about' | 'experience' | 'contact' | 'lab' | 'ask' | ProjectSlug;
 interface WorldControl {
   state: WorldState;
   progress: MutableRefObject<number>;
@@ -29,6 +29,10 @@ export function WorldController({ children }: { children: ReactNode }) {
       ? 'work-map'
       : pathname === '/about'
         ? 'about'
+        : pathname === '/experience'
+          ? 'experience'
+          : pathname === '/contact'
+            ? 'contact'
         : pathname === '/lab'
           ? 'lab'
           : pathname === '/ask'

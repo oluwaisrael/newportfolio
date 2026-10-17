@@ -2,12 +2,12 @@ import { test, expect } from '@playwright/test';
 const routes = [
   '/',
   '/work',
-  '/work/priceuniverse',
-  '/work/unirag',
-  '/work/neural-network',
-  '/work/roam',
-  '/work/lael',
+  '/work/lael-ai',
+  '/work/aiico-product-api',
+  '/work/backend-systems',
   '/about',
+  '/experience',
+  '/contact',
   '/lab',
   '/ask',
 ];
@@ -71,8 +71,8 @@ test('WebGL failure retains navigation and case content', async ({ page }) => {
       return Reflect.apply(original, this, [type, ...args]);
     } as typeof original;
   });
-  await page.goto('/work/unirag');
-  await expect(page.getByRole('heading', { name: 'UniRAG', exact: true })).toBeVisible();
+  await page.goto('/work/aiico-product-api');
+  await expect(page.getByRole('heading', { name: 'AIICO Product API', exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Read the source' })).toBeVisible();
   await expect(page.getByText('WORLD / STILL')).toBeVisible();
 });
@@ -84,9 +84,9 @@ test('keyboard navigation and Ask destination are functional', async ({ page }) 
   await page.keyboard.press('Enter');
   await expect(page.locator('#main')).toBeFocused();
   await page.goto('/ask');
-  await page.getByRole('button', { name: 'Explain UniRAG.' }).click();
-  await page.getByRole('link', { name: 'Follow the retrieval' }).click();
-  await expect(page).toHaveURL(/\/work\/unirag$/);
+  await page.getByRole('button', { name: 'What is Lael?' }).click();
+  await page.getByRole('link', { name: 'Explore Lael' }).click();
+  await expect(page).toHaveURL(/\/work\/lael-ai$/);
 });
 test('lab controls change real computations', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -135,12 +135,12 @@ test('desktop retains one Canvas and persists explicit quality', async ({ page }
 
 test('runtime context loss switches to still artwork without losing content', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.goto('/work/priceuniverse');
+  await page.goto('/work/aiico-product-api');
   await expect(page.locator('.world-ready')).toBeVisible();
   await page.locator('canvas').dispatchEvent('webglcontextlost');
   await expect(page.locator('canvas')).toHaveCount(0);
   await expect(page.getByText('WORLD / STILL')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'PriceUniverse', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'AIICO Product API', exact: true })).toBeVisible();
 });
 
 test('low capacity devices use the static experience', async ({ page }) => {

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { useCapabilities } from '../hooks/useCapabilities';
+import { certifications, experience, profile, skills, timeline } from '../data/profile';
 const pins = [
   {
     slug: 'core',
@@ -12,59 +13,40 @@ const pins = [
     href: '#arrival-path',
   },
   {
-    slug: 'unirag',
-    name: 'UniRAG',
-    detail: 'DOCUMENT RETRIEVAL\nRAG SYSTEMS\nAI APPLICATIONS',
+    slug: 'lael-ai',
+    name: 'LAEL — LOCAL AI',
+    detail: 'LOCAL PRESENCE\nVOICE + MEMORY\nPRIVATE DEVELOPMENT',
     x: 28,
     y: 33,
     color: '#a9c8ff',
-    href: '/work/unirag',
+    href: '/work/lael-ai',
   },
   {
-    slug: 'priceuniverse',
-    name: 'PriceUniverse',
-    detail: 'PRICE INTELLIGENCE\nSCRAPING\nBACKEND SYSTEMS',
+    slug: 'aiico-product-api',
+    name: 'AIICO PRODUCT API',
+    detail: 'ASP.NET CORE\nPOSTGRESQL\nPUBLIC C# API',
     x: 70,
     y: 33,
     color: '#a6d386',
-    href: '/work/priceuniverse',
+    href: '/work/aiico-product-api',
   },
   {
-    slug: 'neural-network',
-    name: 'Neural Network',
-    detail: 'FROM SCRATCH\nDEEP LEARNING\nFUNDAMENTALS\nNUMPY',
+    slug: 'backend-systems',
+    name: 'BACKEND SYSTEMS',
+    detail: 'API BOUNDARIES\nASYNC WORK\nREAL-TIME FLOWS',
     x: 16,
     y: 55,
     color: '#dfad65',
-    href: '/work/neural-network',
-  },
-  {
-    slug: 'lael',
-    name: 'Lael',
-    detail: 'LOCAL INTELLIGENCE\nPERSONAL OS\nTAURI + RUST',
-    x: 90,
-    y: 43,
-    color: '#c9d4e1',
-    href: '/work/lael',
-  },
-  {
-    slug: 'roam',
-    name: 'Roam',
-    detail: 'DECISION SYSTEMS\nREAL PLACES\nNATURAL LANGUAGE',
-    x: 84,
-    y: 64,
-    color: '#dfa875',
-    href: '/work/roam',
+    href: '/work/backend-systems',
   },
 ];
 const index = [
   ['00', 'ORIGIN', '#arrival-title'],
-  ['01', 'STATISTICS', '#statistics'],
-  ['02', 'SYSTEMS', '#arrival-path'],
-  ['03', 'WORK', '/work'],
-  ['04', 'LAB', '/lab'],
-  ['05', 'ABOUT', '/about'],
-  ['06', 'CONTACT', 'mailto:adeotiisrael93@gmail.com'],
+  ['01', 'WORK', '/work'],
+  ['02', 'JOURNEY', '#journey'],
+  ['03', 'EXPERIENCE', '/experience'],
+  ['04', 'ABOUT', '/about'],
+  ['05', 'CONTACT', '/contact'],
 ];
 export default function Home() {
   const { realtime } = useCapabilities();
@@ -73,28 +55,22 @@ export default function Home() {
       <section className="arrival" aria-labelledby="arrival-title">
         <div className="arrival-copy">
           <p id="statistics" className="eyebrow">
-            STATISTICS × SOFTWARE × AI
+            cødë → derin* / LAGOS, NIGERIA
           </p>
           <h1 id="arrival-title">
-            I TURN DATA
+            I BUILD SOFTWARE
             <br />
-            <em>INTO SYSTEMS.</em>
+            <em>WHERE DATA, DESIGN &amp; INTELLIGENCE MEET.</em>
           </h1>
           <p className="arrival-description">
-            Statistics underneath.
-            <br />
-            Backend at the foundation.
-            <br />
-            AI/ML at the frontier.
-            <br />
-            Interactive systems on the surface.
+            {profile.positioning}.
           </p>
           <div className="arrival-actions">
             <a href={realtime ? '#arrival-path' : '#discover'} className="pill">
               Enter the world <span>⟶</span>
             </a>
-            <Link to="/ask" className="text-link">
-              Ask Derin <span>⟶</span>
+            <Link to="/contact" className="text-link">
+              Contact <span>⟶</span>
             </Link>
           </div>
         </div>
@@ -146,7 +122,7 @@ export default function Home() {
           <span className="arrival-identity mono">
             ADEOTI ISRAEL
             <br />
-            <span>STATISTICS STUDENT / BUILDER</span>
+            <span>STATISTICS · BACKEND · APPLIED AI</span>
           </span>
           <a href="#discover" className="scroll-cue mono">
             <i aria-hidden="true">↓</i>
@@ -158,10 +134,8 @@ export default function Home() {
         className="arrival-traverse"
         id="arrival-path"
         aria-label="The winding path into the world"
-      >
-        <div id="discover" />
-      </div>
-      <section className="discovery" aria-label="Explore the world">
+      />
+      <section id="discover" className="discovery" aria-label="Explore the world">
         <div className="destination-index">
           {projects.map((p) => (
             <Link key={p.slug} to={'/work/' + p.slug} className="destination-line">
@@ -176,20 +150,26 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="direction">
-        <p className="eyebrow">05 / THE PERSON BEHIND THE SYSTEMS</p>
+      <section className="direction" id="journey">
+        <p className="eyebrow">THE PERSON BEHIND THE SYSTEMS</p>
         <h2>
           Learning to see.
           <br />
           Learning to build.
         </h2>
         <p>
-          I’m Adeoti Israel. Derin, online. A Statistics student at the University of Lagos, working
-          at the intersection of data, backend engineering and applied AI.
+          Before the systems, there was cødë. Now: a Statistics student building at the intersection of data, backend engineering and applied AI.
         </p>
         <Link to="/about" className="text-link">
           About Derin <span>⟶</span>
         </Link>
+      </section>
+      <section className="profile-ledger" aria-label="Profile overview">
+        <div className="academic-feature"><span className="eyebrow">UNIVERSITY OF LAGOS / STATISTICS</span><strong>{profile.cgpa}</strong><span>WEIGHTED CGPA</span></div>
+        <div><p className="eyebrow">THE JOURNEY</p>{timeline.map(([year, text]) => <p key={year}><b>{year}</b> {text}</p>)}</div>
+        <div><p className="eyebrow">CURRENT &amp; PRIOR EXPERIENCE</p>{experience.map(([company, role, note]) => <p key={company}><b>{company}</b><br />{role} · {note}</p>)}</div>
+        <div><p className="eyebrow">CREDENTIALS / SEVEN</p>{certifications.map(([name, issuer, date]) => <p key={name}><b>{name}</b><br />{issuer} · {date}</p>)}</div>
+        <div><p className="eyebrow">TOOLS DEMONSTRATED ACROSS WORK</p><p>{skills.join(' · ')}</p><p className="muted">Founder of lāel, an independent clothing brand. V&amp;M UNILAG model; independent fashion and lifestyle creator; freelance developer and designer.</p></div>
       </section>
     </>
   );
