@@ -19,9 +19,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-:root[data-theme='light'] { color-scheme: light; --ink: #eee9dc; --paper: #151b1f; --muted: #586268; --line: #1720272a; }
-:root[data-theme='system'] { color-scheme: light dark; }
-@media (prefers-color-scheme: light) { :root:not([data-theme='dark']) { --ink: #eee9dc; --paper: #151b1f; --muted: #586268; --line: #1720272a; } }
 * {
   box-sizing: border-box;
 }
