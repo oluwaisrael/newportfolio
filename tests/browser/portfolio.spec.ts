@@ -2,7 +2,10 @@ import { test, expect } from '@playwright/test';
 const routes = [
   '/',
   '/work',
+  '/work/priceuniverse',
   '/work/lael-ai',
+  '/work/roam',
+  '/work/neural-network',
   '/work/aiico-product-api',
   '/work/backend-systems',
   '/about',

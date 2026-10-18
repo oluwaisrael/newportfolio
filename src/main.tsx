@@ -27,3 +27,4 @@ import './styles/narrative.css';
 import './styles/experience-atlas.css';
 import './styles/work-exhibition.css';
 import './styles/work-tune.css';
+import './styles/home-six.css';
