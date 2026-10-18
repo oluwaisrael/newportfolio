@@ -1,0 +1,11 @@
+@media (min-width: 901px) {
+  .exhibition-intro {
+    padding-top: 145px;
+    padding-bottom: 62px;
+  }
+
+  .exhibition-heading {
+    padding-top: 32px;
+    padding-bottom: 46px;
+  }
+}

@@ -25,3 +25,5 @@ import './styles/case-mobile.css';
 import './styles/world-frame.css';
 import './styles/narrative.css';
 import './styles/experience-atlas.css';
+import './styles/work-exhibition.css';
+import './styles/work-tune.css';
