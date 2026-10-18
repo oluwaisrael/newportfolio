@@ -24,3 +24,4 @@ import './styles/rebuild.css';
 import './styles/case-mobile.css';
 import './styles/world-frame.css';
 import './styles/narrative.css';
+import './styles/experience-atlas.css';
