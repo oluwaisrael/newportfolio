@@ -204,3 +204,18 @@
 .next-project > span:last-child {
   font-size: 30px;
 }
+/* Readable typography on dark Work sections */
+.work-section {
+  color: #e9e4d8;
+}
+
+.work-section h1,
+.work-section h2,
+.work-section h3,
+.work-section h4 {
+  color: #e9e4d8;
+}
+
+.work-section p {
+  color: #c5cbd0;
+}
