@@ -1,0 +1,11 @@
+@media (min-width: 901px) and (pointer: fine) {
+  .atlas-home {
+    background: transparent;
+  }
+
+  .atlas-arrival {
+    background:
+      linear-gradient(90deg, #0b1015d9 0%, #0b10157a 40%, #0b10151f 72%, #0b101570 100%),
+      linear-gradient(0deg, #0b101570, transparent 42%, #0b101540);
+  }
+}

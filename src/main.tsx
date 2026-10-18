@@ -22,3 +22,4 @@ import './styles/mobile.css';
 import './styles/profile.css';
 import './styles/rebuild.css';
 import './styles/case-mobile.css';
+import './styles/world-frame.css';
