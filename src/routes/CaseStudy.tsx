@@ -45,6 +45,11 @@ export default function CaseStudy() {
             </li>
           ))}
         </ol>
+        <section className="case-diagram" aria-label={`${project.title} implementation flow`}>
+          <p className="eyebrow">IMPLEMENTATION FLOW / VERIFIED SCOPE</p>
+          <div>{project.pipeline.map((step, i) => <span key={step}><b>0{i + 1}</b>{step}</span>)}</div>
+          <p>Diagram describes the project’s documented implementation boundary. It does not imply a shared production platform or undisclosed infrastructure.</p>
+        </section>
         <div className="case-sections">
           {project.sections.map((section, i) => (
             <section key={section.title}>
