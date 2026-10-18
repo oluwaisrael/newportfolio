@@ -1,0 +1,22 @@
+@media (max-width: 900px), (pointer: coarse) {
+  .case-hero {
+    background: var(--ink);
+  }
+
+  .case-hero::before {
+    content: 'FIELD NOTE / SELECTED WORK';
+    display: block;
+    margin-bottom: 18px;
+    color: var(--project-accent);
+    font: 8px var(--mono);
+    letter-spacing: 0.16em;
+  }
+
+  .case-hero .case-summary {
+    color: #c7ceca;
+  }
+
+  .case-study .case-content {
+    background: var(--ink);
+  }
+}
