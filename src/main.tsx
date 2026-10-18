@@ -20,3 +20,4 @@ import './styles/lab.css';
 import './styles/ask.css';
 import './styles/mobile.css';
 import './styles/profile.css';
+import './styles/rebuild.css';
